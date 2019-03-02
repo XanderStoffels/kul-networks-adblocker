@@ -4,6 +4,7 @@ import application.exceptions.HttpClientConnectionException;
 import application.messaging.api.IHttpRequest;
 import application.messaging.api.IHttpResponse;
 import application.messaging.imp.HttpResponse;
+import application.messaging.model.ResponseStatus;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -60,11 +61,9 @@ public class HttpClient implements IHttpClient {
             throw new HttpClientConnectionException("Could not request request", e);
         }
 
-        String reponseStatus = receiveStatus();
-        int statusCode = Integer.parseInt(reponseStatus.split(" ")[1]);
-        String status = Arrays.stream(reponseStatus.split(" ")).skip(2).collect(Collectors.joining( " "));
+        ResponseStatus reponseStatus = receiveStatus();
 
-        IHttpResponse response = new HttpResponse(statusCode, status);
+        IHttpResponse response = new HttpResponse(reponseStatus);
 
         return response;
     }
@@ -89,12 +88,19 @@ public class HttpClient implements IHttpClient {
         return builder.toString();
     }
 
-    private String receiveStatus() throws HttpClientConnectionException {
+    private ResponseStatus receiveStatus() throws HttpClientConnectionException {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            return reader.readLine();
+            String line = reader.readLine();
+            String[] parts = line.split(" ");
+
+            ResponseStatus status = new ResponseStatus(Integer.parseInt(parts[1]));
+            status.setHttpVersion(line.split(" ")[0]);
+            status.setStatusMessage(Arrays.stream(parts).skip(2).collect(Collectors.joining()));
+
+            return status;
         } catch (IOException e) {
-            throw new HttpClientConnectionException("Could not receive Status line", e);
+            throw new HttpClientConnectionException("Could not receive Response Status", e);
         }
 
     }

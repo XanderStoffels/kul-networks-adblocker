@@ -17,7 +17,7 @@ public class Main {
             request.setHeader("Host", "www.google.com");
 
             IHttpResponse response = client.request(request);
-            System.out.println(response.getStatusMessage());
+            System.out.println(response.getResponseStatus().isSuccessful());
             System.out.println("Done!");
 
         } catch (HttpClientConnectionException e) {

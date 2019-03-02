@@ -1,24 +1,18 @@
 package application.messaging.imp;
 
 import application.messaging.api.IHttpResponse;
+import application.messaging.model.ResponseStatus;
 
 public class HttpResponse extends BaseHttpMessage implements IHttpResponse {
 
-    private int statusCode;
-    private String statusMessage;
+    private ResponseStatus status;
 
-    public HttpResponse(int statusCode, String statusMessage) {
-        this.statusCode = statusCode;
-        this.statusMessage = statusMessage;
+    public HttpResponse(ResponseStatus status) {
+        this.status = status;
     }
 
     @Override
-    public int getStatusCode() {
-        return this.statusCode;
-    }
-
-    @Override
-    public String getStatusMessage() {
-        return this.statusMessage;
+    public ResponseStatus getResponseStatus() {
+        return this.status;
     }
 }
