@@ -53,10 +53,15 @@ public class Main {
             headerLines.remove(0);
             headerLines.remove(0);
             for (String l : headerLines) {
-                headers.put(l.split(":")[0], l.split(":")[1]);
+                headers.put(l.split(":")[0].trim(), l.split(":")[1].trim());
             }
 
             headers.forEach((k, v) -> System.out.printf("%s : %s\n", k, v));
+            if (headers.containsKey("Transfer-Encoding")) {
+                if (headers.get("Transfer-Encoding").equals("chunked")) {
+
+                }
+            }
 
        } catch (IOException e) {
             System.out.println("An IO error occurred");
