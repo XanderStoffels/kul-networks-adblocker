@@ -19,6 +19,6 @@ public class HttpResponse extends BaseHttpMessage implements IHttpResponse {
 
     @Override
     public String getStatusMessage() {
-        return this.getStatusMessage();
+        return this.statusMessage;
     }
 }
