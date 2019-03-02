@@ -8,10 +8,12 @@ import java.util.HashMap;
 public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
 
     private HttpMethod method;
+    private String urlTail;
 
     public HttpRequest(HttpMethod method) {
         this.method = method;
         this.headers = new HashMap<>();
+        this.urlTail = "/";
     }
 
     @Override
@@ -22,6 +24,16 @@ public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
     @Override
     public HttpMethod getMethod() {
         return this.method;
+    }
+
+    @Override
+    public void setUrlTail(String tail) {
+        this.urlTail = tail;
+    }
+
+    @Override
+    public String getUrlTail() {
+        return this.urlTail;
     }
 
 

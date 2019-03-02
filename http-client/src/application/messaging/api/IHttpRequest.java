@@ -10,4 +10,7 @@ public interface IHttpRequest extends IHttpMessage{
     void setMethod(HttpMethod method);
     HttpMethod getMethod();
 
+    void setUrlTail(String tail);
+    String getUrlTail();
+
 }

@@ -1,3 +1,10 @@
+import application.HttpClient;
+import application.IHttpClient;
+import application.exceptions.HttpClientConnectionException;
+import application.messaging.HttpMethod;
+import application.messaging.api.IHttpRequest;
+import application.messaging.imp.HttpRequest;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,17 +17,23 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
-       /*
-        if (args.length == 0) {
 
-            System.exit(0);
-        }
-        if (args.length != 3) {
-            System.out.println("Invalid amount of arguments");
-            System.exit(1);
+        IHttpClient client = new HttpClient("www.google.com");
+        try {
+            client.connect();
+
+            IHttpRequest request = new HttpRequest(HttpMethod.GET);
+            request.setHeader("Host", "www.google.com");
+
+            client.send(request);
+            System.out.println("Done!");
+
+        } catch (HttpClientConnectionException e) {
+            e.printStackTrace();
         }
 
-        */
+
+      /*
         String url = "www.google.be";
         try {
             Socket s = new Socket(InetAddress.getByName(url), 80);
@@ -68,6 +81,8 @@ public class Main {
             System.out.println(e.getMessage());
             System.exit(1);
        }
+
+       */
 
     }
 }
