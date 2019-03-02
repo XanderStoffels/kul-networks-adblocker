@@ -1,9 +1,6 @@
 package application.messaging.api;
 
-import application.messaging.HttpMethod;
-
-import java.util.List;
-import java.util.Set;
+import application.messaging.model.HttpMethod;
 
 public interface IHttpRequest extends IHttpMessage{
 

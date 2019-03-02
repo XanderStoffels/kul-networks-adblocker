@@ -1,6 +1,6 @@
 package application.messaging.imp;
 
-import application.messaging.HttpMethod;
+import application.messaging.model.HttpMethod;
 import application.messaging.api.IHttpRequest;
 
 import java.util.HashMap;

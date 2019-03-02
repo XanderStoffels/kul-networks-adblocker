@@ -1,4 +1,4 @@
-package application;
+package application.core.api;
 
 import application.exceptions.HttpClientConnectionException;
 import application.messaging.api.IHttpRequest;

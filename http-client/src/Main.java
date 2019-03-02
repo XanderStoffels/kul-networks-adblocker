@@ -1,7 +1,7 @@
-import application.HttpClient;
-import application.IHttpClient;
+import application.core.imp.HttpClient;
+import application.core.api.IHttpClient;
 import application.exceptions.HttpClientConnectionException;
-import application.messaging.HttpMethod;
+import application.messaging.model.HttpMethod;
 import application.messaging.api.IHttpRequest;
 import application.messaging.api.IHttpResponse;
 import application.messaging.imp.HttpRequest;
@@ -19,13 +19,13 @@ public class Main {
             IHttpResponse response = client.request(request);
             System.out.println(response.getResponseStatus().isSuccessful());
             System.out.println("Done!");
+            System.exit(0);
 
         } catch (HttpClientConnectionException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+            System.out.println(e.getCause().getMessage());
+            System.exit(1);
         }
-
-
-
 
     }
 }

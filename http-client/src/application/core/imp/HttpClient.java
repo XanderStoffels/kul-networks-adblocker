@@ -1,5 +1,6 @@
-package application;
+package application.core.imp;
 
+import application.core.api.IHttpClient;
 import application.exceptions.HttpClientConnectionException;
 import application.messaging.api.IHttpRequest;
 import application.messaging.api.IHttpResponse;
