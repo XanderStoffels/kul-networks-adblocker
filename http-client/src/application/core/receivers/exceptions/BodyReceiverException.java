@@ -1,4 +1,14 @@
 package application.core.receivers.exceptions;
 
-public class BodyReceiverException {
+public class BodyReceiverException extends Exception {
+    public BodyReceiverException() {
+    }
+
+    public BodyReceiverException(String message) {
+        super(message);
+    }
+
+    public BodyReceiverException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

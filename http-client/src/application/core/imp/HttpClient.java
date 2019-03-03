@@ -1,10 +1,14 @@
 package application.core.imp;
 
 import application.core.api.IHttpClient;
+import application.core.receivers.api.IHttpBodyReceiver;
+import application.core.receivers.exceptions.BodyReceiverException;
+import application.core.receivers.imp.ContentLengthBodyReceiver;
 import application.exceptions.HttpClientConnectionException;
 import application.messaging.api.IHttpRequest;
 import application.messaging.api.IHttpResponse;
 import application.messaging.imp.HttpResponse;
+import application.messaging.model.HttpMethod;
 import application.messaging.model.ResponseStatus;
 
 import java.io.BufferedReader;
@@ -43,14 +47,26 @@ public class HttpClient implements IHttpClient {
         }
 
         // Send the request
-        String requestString = request.toString();
-        writer.print(requestString);
-        writer.flush();
+        sendRequest(request, writer);
 
+        // Receive response status
         ResponseStatus responseStatus = receiveStatus(reader);
+
+        // Receive response headers
         Map<String, String> headers =  receiveHeaders(reader);
 
-        return new HttpResponse(responseStatus, headers);
+        // Receive response body if necessary
+        // A response to a HEAD request does not have a body
+        // Not every body-response protocol is supported
+        try {
+            String body = (request.getMethod() == HttpMethod.HEAD) ? "" : receiveBody(reader, headers);
+            return new HttpResponse(responseStatus, headers, body);
+        } catch (UnsupportedOperationException e) {
+            throw new HttpClientConnectionException("Unsupported response protocol", e);
+        } catch (BodyReceiverException e) {
+            throw new HttpClientConnectionException("Error while receiving response-body from server", e);
+        }
+
     }
 
     @Override
@@ -82,6 +98,11 @@ public class HttpClient implements IHttpClient {
         return this.port;
     }
 
+    private void sendRequest(IHttpRequest request, PrintWriter writer) {
+        String requestString = request.toString();
+        writer.print(requestString);
+        writer.flush();
+    }
     private ResponseStatus receiveStatus(BufferedReader reader) throws HttpClientConnectionException {
         try {
             String line = reader.readLine();
@@ -123,6 +144,22 @@ public class HttpClient implements IHttpClient {
             throw new HttpClientConnectionException("Could not receive headers", e);
         }
     }
+    private String receiveBody(BufferedReader reader, Map<String, String> headers) throws UnsupportedOperationException, BodyReceiverException {
+        // Check if one of the supported headers are present
+        final String ContentLength = "Content-Length";
+        final String TransferEncoding = "Transfer-Encoding";
 
+        if (headers.containsKey(ContentLength)) {
+            int contentLength = Integer.parseInt(headers.get(ContentLength));
+            IHttpBodyReceiver receiver = new ContentLengthBodyReceiver(contentLength);
+            return receiver.getBody(reader);
+        }
+
+        if (headers.containsKey(TransferEncoding)) {
+            return "roo";
+        } else {
+            throw new UnsupportedOperationException("The server's body-response protocol is not supported");
+        }
+    }
 
 }
