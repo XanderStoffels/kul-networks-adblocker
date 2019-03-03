@@ -3,6 +3,7 @@ package application.core.imp;
 import application.core.api.IHttpClient;
 import application.core.receivers.api.IHttpBodyReceiver;
 import application.core.receivers.exceptions.BodyReceiverException;
+import application.core.receivers.imp.ChunkedBodyReceiver;
 import application.core.receivers.imp.ContentLengthBodyReceiver;
 import application.exceptions.HttpClientConnectionException;
 import application.messaging.api.IHttpRequest;
@@ -16,7 +17,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.nio.Buffer;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -152,11 +152,15 @@ public class HttpClient implements IHttpClient {
         if (headers.containsKey(ContentLength)) {
             int contentLength = Integer.parseInt(headers.get(ContentLength));
             IHttpBodyReceiver receiver = new ContentLengthBodyReceiver(contentLength);
-            return receiver.getBody(reader);
+            return receiver.getBody(reader, headers);
         }
 
         if (headers.containsKey(TransferEncoding)) {
-            return "roo";
+            if (headers.get(TransferEncoding).equals("chunked")) {
+                IHttpBodyReceiver receiver = new ChunkedBodyReceiver();
+                return receiver.getBody(reader, headers);
+            }
+            throw new UnsupportedOperationException(String.format("Unknown protocol for %s, %s", TransferEncoding, headers.get(TransferEncoding)));
         } else {
             throw new UnsupportedOperationException("The server's body-response protocol is not supported");
         }

@@ -5,6 +5,7 @@ import application.core.receivers.exceptions.BodyReceiverException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Map;
 
 public class ContentLengthBodyReceiver implements IHttpBodyReceiver {
 
@@ -15,7 +16,7 @@ public class ContentLengthBodyReceiver implements IHttpBodyReceiver {
     }
 
     @Override
-    public String getBody(BufferedReader reader) throws BodyReceiverException {
+    public String getBody(BufferedReader reader, Map<String, String> headers) throws BodyReceiverException {
         char[] content = new char[this.contentLength];
         try {
             reader.read(content);

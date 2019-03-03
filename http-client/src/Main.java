@@ -10,6 +10,7 @@ public class Main {
 
 
     public static void main(String[] args) {
+
         IHttpClient client = new HttpClient("www.google.com");
         try {
             client.connect();
@@ -43,6 +44,7 @@ public class Main {
         });
         builder.append("\n");
 
+        if (response.getBody().length() == 0) return builder.toString();
         builder.append("** BODY **\n");
         builder.append(response.getBody());
 
