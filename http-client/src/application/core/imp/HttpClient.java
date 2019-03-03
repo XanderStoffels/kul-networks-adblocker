@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.nio.Buffer;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -20,15 +21,36 @@ public class HttpClient implements IHttpClient {
     private Socket socket;
     private String baseUrl;
     private int port;
-    public static final String httpVersion = "HTTP/1.1";
 
     public HttpClient(String baseUrl) {
         this(baseUrl, 80);
     }
-
     public HttpClient(String baseUrl, int port) {
         this.baseUrl = baseUrl;
         this.port = port;
+    }
+
+    @Override
+    public IHttpResponse request(IHttpRequest request) throws HttpClientConnectionException {
+        PrintWriter writer;
+        BufferedReader reader;
+
+        try {
+            writer = new PrintWriter(socket.getOutputStream());
+            reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        } catch (IOException e) {
+            throw new HttpClientConnectionException("Could not open IO stream from socket.", e);
+        }
+
+        // Send the request
+        String requestString = request.toString();
+        writer.print(requestString);
+        writer.flush();
+
+        ResponseStatus responseStatus = receiveStatus(reader);
+        Map<String, String> headers =  receiveHeaders(reader);
+
+        return new HttpResponse(responseStatus, headers);
     }
 
     @Override
@@ -51,47 +73,17 @@ public class HttpClient implements IHttpClient {
     }
 
     @Override
-    public IHttpResponse request(IHttpRequest request) throws HttpClientConnectionException {
-        String requestString = buildRequestString(request);
-
-        try {
-            PrintWriter writer = new PrintWriter(socket.getOutputStream());
-            writer.print(requestString);
-            writer.flush();
-        } catch (IOException e) {
-            throw new HttpClientConnectionException("Could not request request", e);
-        }
-
-        ResponseStatus reponseStatus = receiveStatus();
-
-        IHttpResponse response = new HttpResponse(reponseStatus);
-
-        return response;
+    public String getBaseUrl() {
+        return this.baseUrl;
     }
 
-    private String buildRequestString(IHttpRequest request) {
-        StringBuilder builder = new StringBuilder();
-
-        // Set first line of the request
-        builder.append(String.format("%s %s %s\r\n",
-                request.getMethod().name(),
-                request.getUrlTail(),
-                httpVersion));
-
-        // Set headers of the request
-        request.getHeaders().forEach(h -> {
-            builder.append(String.format("%s : %s\r\n", h, request.getHeaderValue(h)));
-        });
-
-        // End with an empty line
-        builder.append("\r\n");
-
-        return builder.toString();
+    @Override
+    public int getPort() {
+        return this.port;
     }
 
-    private ResponseStatus receiveStatus() throws HttpClientConnectionException {
+    private ResponseStatus receiveStatus(BufferedReader reader) throws HttpClientConnectionException {
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String line = reader.readLine();
             String[] parts = line.split(" ");
 
@@ -105,9 +97,8 @@ public class HttpClient implements IHttpClient {
         }
 
     }
-    private Map<String, String> receiveHeaders() throws HttpClientConnectionException {
+    private Map<String, String> receiveHeaders(BufferedReader reader) throws HttpClientConnectionException {
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String i;
             ArrayList<String> headerLines = new ArrayList<>();
             while((i = reader.readLine()) != null) {
@@ -117,28 +108,20 @@ public class HttpClient implements IHttpClient {
 
             Map<String, String> headers = new HashMap<>();
             for (String l : headerLines) {
-                String[] parts = l.split(":");
-                if (parts.length != 2) {
-                    System.out.println("Received a malformed header!");
+                int index = l.indexOf(':');
+                if (index < 0) {
+                    System.out.println("Received a malformed header");
                     continue;
                 }
-                headers.put(parts[0], parts[1]);
+                String key = l.substring(0, index).trim();
+                String value = l.substring(index + 1).trim();
+                headers.put(key, value);
             }
             return headers;
 
         } catch (IOException e) {
             throw new HttpClientConnectionException("Could not receive headers", e);
         }
-    }
-
-    @Override
-    public String getBaseUrl() {
-        return this.baseUrl;
-    }
-
-    @Override
-    public int getPort() {
-        return this.port;
     }
 
 

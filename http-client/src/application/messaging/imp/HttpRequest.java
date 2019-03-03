@@ -7,6 +7,8 @@ import java.util.HashMap;
 
 public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
 
+    public static final String httpVersion = "HTTP/1.1";
+
     private HttpMethod method;
     private String urlTail;
 
@@ -36,5 +38,24 @@ public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
         return this.urlTail;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
 
+        // Set first line of the request
+        builder.append(String.format("%s %s %s\r\n",
+                getMethod().name(),
+                getUrlTail(),
+                httpVersion));
+
+        // Set headers of the request
+        getHeaders().forEach(h -> {
+            builder.append(String.format("%s : %s\r\n", h, getHeaderValue(h)));
+        });
+
+        // End with an empty line
+        builder.append("\r\n");
+
+        return builder.toString();
+    }
 }
