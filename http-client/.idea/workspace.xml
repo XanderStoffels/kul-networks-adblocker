@@ -7,12 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00b973bb-8154-459c-abdb-cd87dcb3900e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/core/imp/HttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/core/imp/HttpClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/core/receivers/api/IHttpBodyReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/core/receivers/api/IHttpBodyReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/core/receivers/imp/ContentLengthBodyReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/core/receivers/imp/ContentLengthBodyReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,14 +104,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+            <state relative-caret-position="281">
+              <caret line="82" column="54" lean-forward="true" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#findCharSet#0;class#ChunckedBodyReceiver#0" />
-                <element signature="method#stringToCharset#0;class#ChunckedBodyReceiver#0" />
-                <element signature="method#readChunkSize#0;class#ChunckedBodyReceiver#0" />
-                <element signature="method#readNextBuffer#0;class#ChunckedBodyReceiver#0" />
               </folding>
             </state>
           </provider>
@@ -192,7 +184,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
+    <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
   </component>
@@ -274,7 +266,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551626061408" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551635383221" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -325,18 +317,18 @@
       <workItem from="1551482903487" duration="483000" />
       <workItem from="1551525220217" duration="14768000" />
       <workItem from="1551560049434" duration="511000" />
-      <workItem from="1551608312551" duration="15301000" />
+      <workItem from="1551608312551" duration="17997000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38713000" />
+    <option name="totallyTimeSpent" value="41409000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17315437" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17315437" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -345,7 +337,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27478755" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27478755" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3654391" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -369,6 +361,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/application/messaging/HttpMessage.java" />
@@ -623,14 +627,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
+        <state relative-caret-position="281">
+          <caret line="82" column="54" lean-forward="true" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#findCharSet#0;class#ChunckedBodyReceiver#0" />
-            <element signature="method#stringToCharset#0;class#ChunckedBodyReceiver#0" />
-            <element signature="method#readChunkSize#0;class#ChunckedBodyReceiver#0" />
-            <element signature="method#readNextBuffer#0;class#ChunckedBodyReceiver#0" />
           </folding>
         </state>
       </provider>

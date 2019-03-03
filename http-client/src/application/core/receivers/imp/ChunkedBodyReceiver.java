@@ -28,12 +28,14 @@ public class ChunkedBodyReceiver implements IHttpBodyReceiver {
 
         do {
             int nextChunkSize = readChunkSize(reader);
-            int nextCharCount = nextChunkSize / 8;
+            int nextCharCount = nextChunkSize ;
 
             if (nextCharCount == 0) {
                 contentAvailable = false;
             } else {
+                System.out.println(nextCharCount);
                 String chunkText = readChunkData(reader, nextCharCount);
+                System.out.println(chunkText);
                 builder.append(chunkText);
             }
         } while (contentAvailable);
@@ -61,10 +63,10 @@ public class ChunkedBodyReceiver implements IHttpBodyReceiver {
     private Charset stringToCharset(String str) {
         Set<Charset> charsets = new HashSet<>(
                 Arrays.asList(
-                        StandardCharsets.ISO_8859_1,
-                        StandardCharsets.US_ASCII,
-                        StandardCharsets.UTF_8,
-                        StandardCharsets.UTF_16,
+                        StandardCharsets.ISO_8859_1, // 1 bit
+                        StandardCharsets.US_ASCII,   // 7 bit
+                        StandardCharsets.UTF_8,      // 8 bit
+                        StandardCharsets.UTF_16,     // 16 bit
                         StandardCharsets.UTF_16BE,
                         StandardCharsets.UTF_16LE
                 ));
@@ -87,6 +89,7 @@ public class ChunkedBodyReceiver implements IHttpBodyReceiver {
         char[] buffer = new char[count];
         try {
             reader.read(buffer);
+            reader.readLine();
             return new String(buffer);
         } catch (IOException e) {
             throw new BodyReceiverException("Could not read next chunk");
