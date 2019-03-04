@@ -12,10 +12,7 @@ import application.messaging.imp.HttpResponse;
 import application.messaging.model.HttpMethod;
 import application.messaging.model.ResponseStatus;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -32,6 +29,60 @@ public class HttpClient implements IHttpClient {
     public HttpClient(String baseUrl, int port) {
         this.baseUrl = baseUrl;
         this.port = port;
+    }
+
+    @Override
+    public IHttpResponse htmlRequest(IHttpRequest request) throws HttpClientConnectionException, IOException {
+        //Best ergens anders file saving doen? zoals in main maar i.p.v. beatifulString, beatifulImage? :p
+        File file = new File("C:\\image\\out.png");
+        PrintWriter writer = null;
+
+        //BufferedReader heb ik hier gelaten om sendRequest en getHeaders niet aan te passen
+        BufferedReader reader = null;
+        InputStream inputStream = null;
+        FileOutputStream fileOutputStream = null;
+        try {
+            fileOutputStream = new FileOutputStream(file);
+            inputStream = socket.getInputStream();
+            writer = new PrintWriter(socket.getOutputStream());
+            reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        sendRequest(request, writer);
+        boolean headerEnded = false;
+
+        byte[] bytes = new byte[2048];
+        int length;
+
+        while((length = inputStream.read(bytes)) != -1) {
+            if(headerEnded)
+                fileOutputStream.write(bytes, 0 , length);
+            else {
+                for (int i = 0; i < 2045; i++) {
+                    if(bytes[i] == 13 && bytes[i + 1] == 10 && bytes[i + 2] == 13 && bytes[i + 3] == 10) {
+                        headerEnded = true;
+                        fileOutputStream.write(bytes, i +4, 2048-i-4);
+                        break;
+                    }
+                }
+            }
+        }
+
+        inputStream.close();
+        fileOutputStream.close();
+
+        ResponseStatus responseStatus = receiveStatus(reader);
+        Map<String, String> headers = receiveHeaders(reader);
+        byte[] imageBytes = receiveImageBody(inputStream, headers);
+
+        return new HttpResponse(responseStatus, headers,imageBytes);
+    }
+
+    private byte[] receiveImageBody(InputStream inputStream, Map<String, String> headers) {
+        //Momenteel wordt er niets gedaan met de return value van imageBytes, misschien handig voor andere types?
+        return null;
     }
 
     @Override
@@ -67,6 +118,7 @@ public class HttpClient implements IHttpClient {
             throw new HttpClientConnectionException("Error while receiving response-body from server", e);
         }
     }
+
 
     @Override
     public void connect() throws HttpClientConnectionException {

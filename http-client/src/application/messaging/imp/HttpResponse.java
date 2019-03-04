@@ -19,6 +19,12 @@ public class HttpResponse extends BaseHttpMessage implements IHttpResponse {
         this.body = body;
     }
 
+    public HttpResponse(ResponseStatus status, Map<String, String> headers, byte[] body){
+        this(status);
+        this.headers = headers;
+        this.imageBody = body;
+    }
+
     @Override
     public ResponseStatus getResponseStatus() {
         return this.status;

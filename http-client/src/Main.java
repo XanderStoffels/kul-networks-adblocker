@@ -6,9 +6,11 @@ import application.messaging.api.IHttpRequest;
 import application.messaging.api.IHttpResponse;
 import application.messaging.imp.HttpRequest;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -51,17 +53,16 @@ public class Main {
                 imageRequest.setHeader("Host", "www.google.com");
                 imageRequest.setUrlTail(base);
                 try {
-                    IHttpResponse imageResponse = client.request(imageRequest);
+                    IHttpResponse imageResponse = client.htmlRequest(imageRequest);
+                    //saveBeautifulImage(imageResponse);
                 } catch (HttpClientConnectionException e) {
                     System.out.println("Could not load image from " + url);
                     System.out.println(e.getMessage());
                     System.out.println(e.getCause().getMessage());
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-
-
             });
-
-
             System.exit(0);
 
         } catch (HttpClientConnectionException e) {

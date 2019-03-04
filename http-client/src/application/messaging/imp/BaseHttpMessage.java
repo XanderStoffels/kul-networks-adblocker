@@ -10,6 +10,7 @@ public class BaseHttpMessage implements IHttpMessage {
 
     protected Map<String,String> headers;
     protected String body;
+    protected byte[] imageBody;
 
     protected BaseHttpMessage() {
         this.headers = new HashMap<>();
