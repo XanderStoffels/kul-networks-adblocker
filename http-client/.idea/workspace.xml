@@ -8,7 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="00b973bb-8154-459c-abdb-cd87dcb3900e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/core/imp/HttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/core/imp/HttpClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/messaging/imp/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/messaging/imp/HttpRequest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="238">
+              <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,14 +35,33 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1003">
+              <caret line="59" column="1057" selection-start-line="59" selection-start-column="1057" selection-end-line="59" selection-end-column="1057" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/messaging/imp/HttpResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+            <state relative-caret-position="289">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#297#298#0" expanded="true" />
-                <element signature="e#333#334#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/core/api/IHttpClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,8 +70,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/messaging/imp/HttpRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="438">
+              <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/messaging/imp/BaseHttpMessage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#761#762#0" expanded="true" />
+                <element signature="e#823#824#0" expanded="true" />
+                <element signature="e#876#877#0" expanded="true" />
+                <element signature="e#920#921#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/core/receivers/imp/ContentLengthBodyReceiver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,69 +122,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/core/imp/HttpClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="160" column="55" selection-start-line="160" selection-start-column="55" selection-end-line="160" selection-end-column="55" />
+            <state relative-caret-position="132">
+              <caret line="100" column="50" lean-forward="true" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#HttpClient#1;class#HttpClient#0" />
-                <element signature="method#connect#0;class#HttpClient#0" />
+                <element signature="e#991#992#0" expanded="true" />
+                <element signature="e#1024#1025#0" expanded="true" />
                 <element signature="method#disconnect#0;class#HttpClient#0" />
-                <element signature="method#sendRequest#0;class#HttpClient#0" />
                 <element signature="method#receiveStatus#0;class#HttpClient#0" />
                 <element signature="method#receiveHeaders#0;class#HttpClient#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/core/receivers/api/IHttpBodyReceiver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/core/receivers/imp/ContentLengthBodyReceiver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#294#295#0" expanded="true" />
-                <element signature="e#344#345#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="82" column="54" lean-forward="true" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/core/receivers/exceptions/BodyReceiverException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#196#197#0" expanded="true" />
-                <element signature="e#226#227#0" expanded="true" />
-                <element signature="e#295#296#0" expanded="true" />
-                <element signature="e#332#333#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -142,6 +150,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>headers</find>
+      <find>image</find>
+      <find>&lt;img</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,23 +180,23 @@
         <option value="$PROJECT_DIR$/src/application/messaging/HttpMethod.java" />
         <option value="$PROJECT_DIR$/src/application/messaging/model/HttpMethod.java" />
         <option value="$PROJECT_DIR$/src/application/core/HttpClient.java" />
-        <option value="$PROJECT_DIR$/src/application/messaging/imp/HttpRequest.java" />
-        <option value="$PROJECT_DIR$/src/application/messaging/imp/HttpResponse.java" />
         <option value="$PROJECT_DIR$/src/application/core/receivers/IHttpBodyReceiver.java" />
         <option value="$PROJECT_DIR$/src/application/core/receivers/exceptions/BodyReceiverException.java" />
         <option value="$PROJECT_DIR$/src/application/core/receivers/api/IHttpBodyReceiver.java" />
         <option value="$PROJECT_DIR$/src/application/core/receivers/imp/ContentLengthBodyReceiver.java" />
-        <option value="$PROJECT_DIR$/src/application/core/imp/HttpClient.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/application/core/receivers/imp/ChunckedBodyReceiver.java" />
+        <option value="$PROJECT_DIR$/src/application/messaging/imp/HttpRequest.java" />
+        <option value="$PROJECT_DIR$/src/application/messaging/imp/HttpResponse.java" />
+        <option value="$PROJECT_DIR$/src/application/core/imp/HttpClient.java" />
         <option value="$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="-5" />
+    <option name="width" value="490" />
+    <option name="height" value="520" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -197,7 +207,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -222,6 +231,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="http-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="http-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="http-client" type="b2602c69:ProjectViewProjectNode" />
@@ -255,18 +272,28 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="receivers" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="http-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="http-client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="receivers" type="462c0819:PsiDirectoryNode" />
               <item name="imp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551635383221" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551711560026" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -317,19 +344,21 @@
       <workItem from="1551482903487" duration="483000" />
       <workItem from="1551525220217" duration="14768000" />
       <workItem from="1551560049434" duration="511000" />
-      <workItem from="1551608312551" duration="17997000" />
+      <workItem from="1551608312551" duration="18052000" />
+      <workItem from="1551690886630" duration="676000" />
+      <workItem from="1551702305051" duration="7474000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41409000" />
+    <option name="totallyTimeSpent" value="49614000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17315437" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7433036" visible="true" weight="0.19463088" />
+      <window_info id="Structure" order="1" sideWeight="0.25669643" side_tool="true" visible="true" weight="0.19463088" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -337,8 +366,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27478755" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3654391" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2592068" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3654391" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -358,6 +387,37 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1785235" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27478755" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3654391" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.5159501" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -366,10 +426,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java</url>
-          <line>29</line>
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>53</line>
           <properties />
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -409,29 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/messaging/imp/BaseHttpMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#920#921#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/core/api/IHttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/application/messaging/model/HttpMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -457,41 +494,6 @@
             <element signature="e#205#206#0" expanded="true" />
             <element signature="e#286#287#0" expanded="true" />
             <element signature="e#348#349#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/messaging/imp/HttpRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/messaging/imp/HttpResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#297#298#0" expanded="true" />
-            <element signature="e#333#334#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/core/receivers/exceptions/BodyReceiverException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#196#197#0" expanded="true" />
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#295#296#0" expanded="true" />
-            <element signature="e#332#333#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -523,7 +525,7 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="0.916" x="-184.98034934497815" y="242.00873362445412" />
+          <settings layout="Hierarchic Group" zoom="0.916" x="-185.0" y="242.0" />
           <SelectedNodes>
             <node>netscape</node>
           </SelectedNodes>
@@ -546,49 +548,11 @@
           <settings layout="Hierarchic Group" zoom="1.0" x="37.0" y="15.0" />
           <SelectedNodes />
           <Categories>
-            <Category>Properties</Category>
             <Category>Methods</Category>
+            <Category>Properties</Category>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/core/receivers/api/IHttpBodyReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/core/imp/HttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="160" column="55" selection-start-line="160" selection-start-column="55" selection-end-line="160" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#HttpClient#1;class#HttpClient#0" />
-            <element signature="method#connect#0;class#HttpClient#0" />
-            <element signature="method#disconnect#0;class#HttpClient#0" />
-            <element signature="method#sendRequest#0;class#HttpClient#0" />
-            <element signature="method#receiveStatus#0;class#HttpClient#0" />
-            <element signature="method#receiveHeaders#0;class#HttpClient#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/core/receivers/imp/ContentLengthBodyReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" column="33" lean-forward="true" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#294#295#0" expanded="true" />
-            <element signature="e#344#345#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -607,18 +571,85 @@
           <settings layout="Hierarchic Group" zoom="1.0" x="68.0" y="90.0" />
           <SelectedNodes />
           <Categories>
-            <Category>Inner Classes</Category>
             <Category>Methods</Category>
+            <Category>Inner Classes</Category>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/application/core/receivers/exceptions/BodyReceiverException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#196#197#0" expanded="true" />
+            <element signature="e#226#227#0" expanded="true" />
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#332#333#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/core/receivers/api/IHttpBodyReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/messaging/imp/BaseHttpMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+            <element signature="e#823#824#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/messaging/imp/HttpResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/core/receivers/imp/ContentLengthBodyReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/core/api/IHttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/messaging/imp/HttpRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -627,8 +658,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/core/receivers/imp/ChunkedBodyReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="82" column="54" lean-forward="true" selection-start-line="82" selection-start-column="54" selection-end-line="82" selection-end-column="54" />
+        <state relative-caret-position="463">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="1057" selection-start-line="59" selection-start-column="1057" selection-end-line="59" selection-end-column="1057" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/core/imp/HttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="100" column="50" lean-forward="true" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#991#992#0" expanded="true" />
+            <element signature="e#1024#1025#0" expanded="true" />
+            <element signature="method#disconnect#0;class#HttpClient#0" />
+            <element signature="method#receiveStatus#0;class#HttpClient#0" />
+            <element signature="method#receiveHeaders#0;class#HttpClient#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

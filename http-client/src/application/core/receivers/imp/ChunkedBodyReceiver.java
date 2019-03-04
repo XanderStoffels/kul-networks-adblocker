@@ -21,60 +21,21 @@ public class ChunkedBodyReceiver implements IHttpBodyReceiver {
 
         // Find out the body charset
         // Todo: find out how many bytes each charset char requires
-        Charset charset = findCharSet(headers);
-
         StringBuilder builder = new StringBuilder();
         boolean contentAvailable = true;
 
         do {
             int nextChunkSize = readChunkSize(reader);
-            int nextCharCount = nextChunkSize ;
 
-            if (nextCharCount == 0) {
+            if (nextChunkSize == 0) {
                 contentAvailable = false;
             } else {
-                System.out.println(nextCharCount);
-                String chunkText = readChunkData(reader, nextCharCount);
-                System.out.println(chunkText);
+                String chunkText = readChunkData(reader, nextChunkSize);
                 builder.append(chunkText);
             }
         } while (contentAvailable);
 
         return builder.toString();
-    }
-
-    private Charset findCharSet(Map<String, String> headers) throws BodyReceiverException {
-        final String header = "Content-Type";
-        if (!headers.containsKey(header))
-            throw new BodyReceiverException("The response is missing the Content-Type header");
-
-        String hValue = headers.get(header);
-        List<String> entries = Arrays.stream(hValue.split(" ")).map(String::trim).collect(Collectors.toList());
-        for (String entry : entries)
-            if (entry.startsWith("charset="))
-                try {
-                    return stringToCharset(entry.split("=")[1]);
-                } catch (IllegalArgumentException e) {
-                    throw new BodyReceiverException("Error while finding charset for response-body");
-                }
-
-        throw new BodyReceiverException(String.format("No charset found in %s", header));
-    }
-    private Charset stringToCharset(String str) {
-        Set<Charset> charsets = new HashSet<>(
-                Arrays.asList(
-                        StandardCharsets.ISO_8859_1, // 1 bit
-                        StandardCharsets.US_ASCII,   // 7 bit
-                        StandardCharsets.UTF_8,      // 8 bit
-                        StandardCharsets.UTF_16,     // 16 bit
-                        StandardCharsets.UTF_16BE,
-                        StandardCharsets.UTF_16LE
-                ));
-
-        for (Charset set : charsets)
-            if (set.displayName().equals(str)) return set;
-
-        throw new IllegalArgumentException(String.format("String could not be parsed to charset: %s", str));
     }
 
     private int readChunkSize(BufferedReader reader) throws BodyReceiverException {
@@ -83,6 +44,8 @@ public class ChunkedBodyReceiver implements IHttpBodyReceiver {
             return Integer.parseInt(chunkHexSize, 16);
         } catch (IOException e) {
             throw new BodyReceiverException("Could not read chunk size", e);
+        } catch (NumberFormatException e) {
+            throw new BodyReceiverException("The server responded with an incorrect chunk size", e);
         }
     }
     private String readChunkData(BufferedReader reader, int count) throws BodyReceiverException {

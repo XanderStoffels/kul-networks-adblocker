@@ -66,7 +66,6 @@ public class HttpClient implements IHttpClient {
         } catch (BodyReceiverException e) {
             throw new HttpClientConnectionException("Error while receiving response-body from server", e);
         }
-
     }
 
     @Override
@@ -110,7 +109,7 @@ public class HttpClient implements IHttpClient {
 
             ResponseStatus status = new ResponseStatus(Integer.parseInt(parts[1]));
             status.setHttpVersion(line.split(" ")[0]);
-            status.setStatusMessage(Arrays.stream(parts).skip(2).collect(Collectors.joining()));
+            status.setStatusMessage(Arrays.stream(parts).skip(2).collect(Collectors.joining(" ")));
 
             return status;
         } catch (IOException e) {

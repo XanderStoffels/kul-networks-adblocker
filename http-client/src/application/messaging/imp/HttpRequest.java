@@ -16,6 +16,8 @@ public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
         this.method = method;
         this.headers = new HashMap<>();
         this.urlTail = "/";
+
+
     }
 
     @Override
