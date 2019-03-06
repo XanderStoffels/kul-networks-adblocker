@@ -5,7 +5,6 @@ import messaging.model.HttpMethod;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
@@ -62,6 +61,11 @@ public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
 
         // End with an empty line
         builder.append("\r\n");
+
+        if (this.method != HttpMethod.GET && this.method != HttpMethod.HEAD) {
+            builder.append(new String(this.body));
+        }
+
 
         return builder.toString();
     }

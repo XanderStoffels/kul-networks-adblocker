@@ -5,19 +5,12 @@ import application.core.receivers.exceptions.BodyReceiverException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.text.ParseException;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 public class ChunkedBodyReceiver implements IHttpBodyReceiver {
 
-
     @Override
-    public String getBody(BufferedReader reader, Map<String, String> headers) throws BodyReceiverException {
+    public byte[] getBody(BufferedReader reader, Map<String, String> headers) throws BodyReceiverException {
 
         // Find out the body charset
         // Todo: find out how many bytes each charset char requires
@@ -35,7 +28,7 @@ public class ChunkedBodyReceiver implements IHttpBodyReceiver {
             }
         } while (contentAvailable);
 
-        return builder.toString();
+        return builder.toString().getBytes();
     }
 
     private int readChunkSize(BufferedReader reader) throws BodyReceiverException {
@@ -48,6 +41,7 @@ public class ChunkedBodyReceiver implements IHttpBodyReceiver {
             throw new BodyReceiverException("The server responded with an incorrect chunk size", e);
         }
     }
+
     private String readChunkData(BufferedReader reader, int count) throws BodyReceiverException {
         char[] buffer = new char[count];
         try {

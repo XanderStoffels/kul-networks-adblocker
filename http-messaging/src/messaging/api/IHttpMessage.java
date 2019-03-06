@@ -7,6 +7,6 @@ public interface IHttpMessage {
     String getHeaderValue(String header);
     Set<String> getHeaders();
 
-    void setBody(String body);
-    String getBody();
+    void setBody(byte[] body);
+    byte[] getBody();
 }

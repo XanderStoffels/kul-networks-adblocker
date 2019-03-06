@@ -11,11 +11,13 @@ import messaging.api.IHttpResponse;
 import messaging.imp.HttpResponse;
 import messaging.model.HttpMethod;
 import messaging.model.ResponseStatus;
-import messaging.model.ResponseStatus;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class HttpClient implements IHttpClient {
@@ -27,6 +29,7 @@ public class HttpClient implements IHttpClient {
     public HttpClient(String baseUrl) {
         this(baseUrl, 80);
     }
+
     public HttpClient(String baseUrl, int port) {
         this.baseUrl = baseUrl;
         this.port = port;
@@ -35,7 +38,7 @@ public class HttpClient implements IHttpClient {
     @Override
     public IHttpResponse htmlRequest(IHttpRequest request) throws HttpClientConnectionException, IOException {
         //Best ergens anders file saving doen? zoals in main maar i.p.v. beatifulString, beatifulImage? :p
-        File file = new File("C:\\image\\out.png");
+        File file = new File("C:\\users\\Xander\\Desktop\\out.png");
         PrintWriter writer = null;
 
         //BufferedReader heb ik hier gelaten om sendRequest en getHeaders niet aan te passen
@@ -57,14 +60,14 @@ public class HttpClient implements IHttpClient {
         byte[] bytes = new byte[2048];
         int length;
 
-        while((length = inputStream.read(bytes)) != -1) {
-            if(headerEnded)
-                fileOutputStream.write(bytes, 0 , length);
+        while ((length = inputStream.read(bytes)) != -1) {
+            if (headerEnded)
+                fileOutputStream.write(bytes, 0, length);
             else {
                 for (int i = 0; i < 2045; i++) {
-                    if(bytes[i] == 13 && bytes[i + 1] == 10 && bytes[i + 2] == 13 && bytes[i + 3] == 10) {
+                    if (bytes[i] == 13 && bytes[i + 1] == 10 && bytes[i + 2] == 13 && bytes[i + 3] == 10) {
                         headerEnded = true;
-                        fileOutputStream.write(bytes, i +4, 2048-i-4);
+                        fileOutputStream.write(bytes, i + 4, 2048 - i - 4);
                         break;
                     }
                 }
@@ -78,7 +81,7 @@ public class HttpClient implements IHttpClient {
         Map<String, String> headers = receiveHeaders(reader);
         byte[] imageBytes = receiveImageBody(inputStream, headers);
 
-        return new HttpResponse(responseStatus, headers,imageBytes);
+        return new HttpResponse(responseStatus, headers, imageBytes);
     }
 
     private byte[] receiveImageBody(InputStream inputStream, Map<String, String> headers) {
@@ -105,13 +108,13 @@ public class HttpClient implements IHttpClient {
         ResponseStatus responseStatus = receiveStatus(reader);
 
         // Receive response headers
-        Map<String, String> headers =  receiveHeaders(reader);
+        Map<String, String> headers = receiveHeaders(reader);
 
         // Receive response body if necessary
         // A response to a HEAD request does not have a body
         // Not every body-response protocol is supported
         try {
-            String body = (request.getMethod() == HttpMethod.HEAD) ? "" : receiveBody(reader, headers);
+            byte[] body = (request.getMethod() == HttpMethod.HEAD) ? new byte[] {} : receiveBody(reader, headers);
             return new HttpResponse(responseStatus, headers, body);
         } catch (UnsupportedOperationException e) {
             throw new HttpClientConnectionException("Unsupported response protocol", e);
@@ -155,6 +158,7 @@ public class HttpClient implements IHttpClient {
         writer.print(requestString);
         writer.flush();
     }
+
     private ResponseStatus receiveStatus(BufferedReader reader) throws HttpClientConnectionException {
         try {
             String line = reader.readLine();
@@ -170,11 +174,12 @@ public class HttpClient implements IHttpClient {
         }
 
     }
+
     private Map<String, String> receiveHeaders(BufferedReader reader) throws HttpClientConnectionException {
         try {
             String i;
             ArrayList<String> headerLines = new ArrayList<>();
-            while((i = reader.readLine()) != null) {
+            while ((i = reader.readLine()) != null) {
                 if (i.length() == 0) break;
                 headerLines.add(i);
             }
@@ -196,7 +201,8 @@ public class HttpClient implements IHttpClient {
             throw new HttpClientConnectionException("Could not receive headers", e);
         }
     }
-    private String receiveBody(BufferedReader reader, Map<String, String> headers) throws UnsupportedOperationException, BodyReceiverException {
+
+    private byte[] receiveBody(BufferedReader reader, Map<String, String> headers) throws UnsupportedOperationException, BodyReceiverException {
         // Check if one of the supported headers are present
         final String ContentLength = "Content-Length";
         final String TransferEncoding = "Transfer-Encoding";

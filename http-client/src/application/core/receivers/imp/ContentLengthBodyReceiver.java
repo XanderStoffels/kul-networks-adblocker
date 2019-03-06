@@ -16,11 +16,11 @@ public class ContentLengthBodyReceiver implements IHttpBodyReceiver {
     }
 
     @Override
-    public String getBody(BufferedReader reader, Map<String, String> headers) throws BodyReceiverException {
+    public byte[] getBody(BufferedReader reader, Map<String, String> headers) throws BodyReceiverException {
         char[] content = new char[this.contentLength];
         try {
             reader.read(content);
-            return new String(content);
+            return new String(content).getBytes();
         } catch (IOException e) {
             throw new BodyReceiverException("Could not receive body content", e);
         }

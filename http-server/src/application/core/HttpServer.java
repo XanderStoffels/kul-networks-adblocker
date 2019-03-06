@@ -2,20 +2,25 @@ package application.core;
 
 import application.exceptions.HttpServerException;
 import messaging.api.IHttpRequest;
+import messaging.api.IHttpResponse;
 import messaging.imp.HttpRequest;
+import messaging.imp.HttpResponse;
+import messaging.model.ResponseStatus;
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
-import java.util.stream.Collectors;
 
 public class HttpServer implements IHttpServer {
     private ServerSocket serverSocket;
@@ -41,7 +46,7 @@ public class HttpServer implements IHttpServer {
         while (isRunning()) {
             try {
                 Socket client = serverSocket.accept();
-
+                System.out.println("SOCKET CONNECTED");
                 executor.submit(() -> handleClient(client));
             } catch (IOException e) {
                 e.printStackTrace();
@@ -51,26 +56,109 @@ public class HttpServer implements IHttpServer {
     private void handleClient(Socket clientSocket) {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            PrintWriter writer = new PrintWriter(clientSocket.getOutputStream());
 
-            boolean contentAvailable = true;
-            List<String> contents = new ArrayList<>();
+            while (true) {
+                boolean contentAvailable = true;
+                List<String> contents = new ArrayList<>();
 
-            while (contentAvailable) {
-                String content = reader.readLine();
-                if(content.length() == 0) {
-                    contentAvailable = false;
-                } else {
-                    contents.add(content);
+                while (contentAvailable) {
+                    String content = reader.readLine();
+                    if(content.length() == 0) {
+                        contentAvailable = false;
+                    } else {
+                        contents.add(content);
+                    }
                 }
-            }
-            String sRequest = contents.stream().collect(Collectors.joining("\r\n"));
-            IHttpRequest request = HttpRequest.parse(sRequest);
 
-            System.out.println(request.getMethod());
-        } catch (IOException | IllegalArgumentException e) {
+                String sRequest = String.join("\r\n", contents);
+                IHttpRequest request = HttpRequest.parse(sRequest);
+                System.out.println("INCOMING REQUEST");
+                IHttpResponse response = this.handleClientRequest(clientSocket, request);
+                response.setHeader("Connection","keep-alive");
+                response.setHeader("Date", new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()));
+
+                String responseString = response.toString();
+                writer.append(responseString);
+
+                clientSocket.getOutputStream().write(response.getBody());
+                writer.write("\r\n");
+                writer.flush();
+                clientSocket.close();
+            }
+
+           // clientSocket.close();
+
+        } catch (IllegalArgumentException e) {
             e.printStackTrace();
-            return;
+        } catch (SocketException s) {
+            System.out.println("CLIENT CLOSED THE CONNECTION");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
+
+    private IHttpResponse handleClientRequest(Socket client, IHttpRequest request) {
+        switch (request.getMethod()){
+            case HEAD:
+                return handleGetRequest(request, false);
+            case GET:
+                return handleGetRequest(request, true);
+            case POST:
+
+                break;
+            case PUT:
+
+                break;
+                default:
+                    //Todo fix
+                    return null;
+        }
+
+        return null;
+
+    }
+
+    private IHttpResponse handleGetRequest(IHttpRequest request, boolean loadBody) {
+
+        final String contentPath = "C:\\Users\\Xander\\Documents\\Projects\\kul-networks-adblocker\\http-server\\static";
+
+        if (request.getUrlTail().equals("/") ||request.getUrlTail().equals("/index")) {
+            request.setUrlTail("/index.html");
+        }
+
+        request.setUrlTail(request.getUrlTail().substring(1));
+        Path requestPath = Paths.get(contentPath, request.getUrlTail());
+        File requestFile = requestPath.toFile();
+
+        if (!requestFile.exists()) {
+            ResponseStatus status = new ResponseStatus(404);
+            status.setHttpVersion("HTTP/1.1");
+            status.setStatusMessage("NOT FOUND");
+            return new HttpResponse(status);
+        }
+
+        try {
+            byte[] fileData = Files.readAllBytes(requestPath);
+
+            ResponseStatus status = new ResponseStatus(200);
+            status.setHttpVersion("HTTP/1.1");
+            status.setStatusMessage("OK");
+
+            String contentType = Files.probeContentType(requestPath);
+
+            IHttpResponse response = new HttpResponse(status);
+            response.setHeader("Content-Length", String.valueOf(fileData.length));
+            response.setHeader("Content-Type", contentType);
+            if (loadBody) response.setBody(fileData);
+            return response;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
     }
 
     @Override

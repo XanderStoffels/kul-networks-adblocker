@@ -9,11 +9,11 @@ import java.util.Set;
 public class BaseHttpMessage implements IHttpMessage {
 
     protected Map<String,String> headers;
-    protected String body;
-    protected byte[] imageBody;
+    protected byte[] body;
 
     protected BaseHttpMessage() {
         this.headers = new HashMap<>();
+        this.body = new byte[] {};
     }
 
     protected boolean hasHeader(String header) {
@@ -40,13 +40,12 @@ public class BaseHttpMessage implements IHttpMessage {
     }
 
     @Override
-    public void setBody(String body) {
+    public void setBody(byte[] body) {
         this.body = body;
-        setHeader("Content-Length", Integer.toString(body.length()));
     }
 
     @Override
-    public String getBody() {
+    public byte[] getBody() {
         return this.body;
     }
 
