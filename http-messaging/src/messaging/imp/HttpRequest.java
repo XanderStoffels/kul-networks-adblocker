@@ -3,7 +3,10 @@ package messaging.imp;
 import messaging.api.IHttpRequest;
 import messaging.model.HttpMethod;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
 
@@ -16,7 +19,9 @@ public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
         this.method = method;
         this.headers = new HashMap<>();
         this.urlTail = "/";
+    }
 
+    private HttpRequest(){
 
     }
 
@@ -59,5 +64,47 @@ public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
         builder.append("\r\n");
 
         return builder.toString();
+    }
+
+    public static HttpRequest parse(String header) {
+        String[] parts =  header.split("\r\n");
+        if(parts.length < 1 )
+            throw new IllegalArgumentException("Unable to parse string");
+
+        String[] statusParts = parts[0].split(" ");
+        HttpRequest httpRequest = new HttpRequest();
+
+        if(statusParts[0].equals(HttpMethod.GET.name())) {
+            httpRequest.setMethod(HttpMethod.GET);
+
+        }else if (statusParts[0].equals(HttpMethod.HEAD.name())){
+            httpRequest.setMethod(HttpMethod.HEAD);
+
+        }else if (statusParts[0].equals(HttpMethod.PUT.name())){
+            httpRequest.setMethod(HttpMethod.PUT);
+
+        }else if (statusParts[0].equals(HttpMethod.POST.name())){
+            httpRequest.setMethod(HttpMethod.POST);
+        } else {
+            throw new IllegalArgumentException("Http method not supported");
+        }
+
+        httpRequest.setUrlTail(statusParts[1]);
+        if(parts.length == 1)
+            return httpRequest;
+
+        //TODO refactor duplicate
+
+        for (String l : Arrays.stream(parts).skip(1).collect(Collectors.toList())) {
+            int index = l.indexOf(':');
+            if (index < 0) {
+                continue;
+            }
+            String key = l.substring(0, index).trim();
+            String value = l.substring(index + 1).trim();
+            httpRequest.setHeader(key, value);
+        }
+
+        return httpRequest;
     }
 }
