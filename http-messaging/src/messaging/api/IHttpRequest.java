@@ -1,6 +1,7 @@
-package application.messaging.api;
+package messaging.api;
 
-import application.messaging.model.HttpMethod;
+
+import messaging.model.HttpMethod;
 
 public interface IHttpRequest extends IHttpMessage{
 

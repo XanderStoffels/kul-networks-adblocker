@@ -1,10 +1,10 @@
 import application.core.imp.HttpClient;
 import application.core.api.IHttpClient;
 import application.exceptions.HttpClientConnectionException;
-import application.messaging.model.HttpMethod;
-import application.messaging.api.IHttpRequest;
-import application.messaging.api.IHttpResponse;
-import application.messaging.imp.HttpRequest;
+import messaging.model.HttpMethod;
+import messaging.api.IHttpRequest;
+import messaging.api.IHttpResponse;
+import messaging.imp.HttpRequest;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

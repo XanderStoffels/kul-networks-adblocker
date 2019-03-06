@@ -6,11 +6,12 @@ import application.core.receivers.exceptions.BodyReceiverException;
 import application.core.receivers.imp.ChunkedBodyReceiver;
 import application.core.receivers.imp.ContentLengthBodyReceiver;
 import application.exceptions.HttpClientConnectionException;
-import application.messaging.api.IHttpRequest;
-import application.messaging.api.IHttpResponse;
-import application.messaging.imp.HttpResponse;
-import application.messaging.model.HttpMethod;
-import application.messaging.model.ResponseStatus;
+import messaging.api.IHttpRequest;
+import messaging.api.IHttpResponse;
+import messaging.imp.HttpResponse;
+import messaging.model.HttpMethod;
+import messaging.model.ResponseStatus;
+import messaging.model.ResponseStatus;
 
 import java.io.*;
 import java.net.Socket;

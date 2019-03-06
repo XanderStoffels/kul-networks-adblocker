@@ -1,8 +1,8 @@
 package application.core.api;
 
 import application.exceptions.HttpClientConnectionException;
-import application.messaging.api.IHttpRequest;
-import application.messaging.api.IHttpResponse;
+import messaging.api.IHttpRequest;
+import messaging.api.IHttpResponse;
 
 import java.io.IOException;
 

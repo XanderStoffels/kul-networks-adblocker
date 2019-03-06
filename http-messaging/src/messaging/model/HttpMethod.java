@@ -1,4 +1,4 @@
-package application.messaging.model;
+package messaging.model;
 
 public enum HttpMethod  {
     HEAD,

@@ -1,7 +1,8 @@
-package application.messaging.imp;
+package messaging.imp;
 
-import application.messaging.api.IHttpResponse;
-import application.messaging.model.ResponseStatus;
+
+import messaging.api.IHttpResponse;
+import messaging.model.ResponseStatus;
 
 import java.util.Map;
 

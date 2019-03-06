@@ -1,6 +1,6 @@
-package application.messaging.imp;
+package messaging.imp;
 
-import application.messaging.api.IHttpMessage;
+import messaging.api.IHttpMessage;
 
 import java.util.HashMap;
 import java.util.Map;

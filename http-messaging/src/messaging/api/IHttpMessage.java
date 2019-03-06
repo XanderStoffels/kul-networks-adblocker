@@ -1,4 +1,4 @@
-package application.messaging.api;
+package messaging.api;
 
 import java.util.Set;
 

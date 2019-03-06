@@ -1,7 +1,7 @@
-package application.messaging.imp;
+package messaging.imp;
 
-import application.messaging.model.HttpMethod;
-import application.messaging.api.IHttpRequest;
+import messaging.api.IHttpRequest;
+import messaging.model.HttpMethod;
 
 import java.util.HashMap;
 

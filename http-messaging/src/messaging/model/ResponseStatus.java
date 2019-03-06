@@ -1,4 +1,4 @@
-package application.messaging.model;
+package messaging.model;
 
 public class ResponseStatus {
     private String httpVersion;
