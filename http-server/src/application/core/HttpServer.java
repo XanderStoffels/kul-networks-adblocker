@@ -46,7 +46,6 @@ public class HttpServer implements IHttpServer {
         while (isRunning()) {
             try {
                 Socket client = serverSocket.accept();
-                System.out.println("SOCKET CONNECTED");
                 executor.submit(() -> handleClient(client));
             } catch (IOException e) {
                 e.printStackTrace();
@@ -54,14 +53,16 @@ public class HttpServer implements IHttpServer {
         }
     }
     private void handleClient(Socket clientSocket) {
+        int requestCount = 0;
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            PrintWriter writer = new PrintWriter(clientSocket.getOutputStream());
+            OutputStream writer = clientSocket.getOutputStream();
 
             while (true) {
                 boolean contentAvailable = true;
                 List<String> contents = new ArrayList<>();
 
+                // Read incoming request
                 while (contentAvailable) {
                     String content = reader.readLine();
                     if(content.length() == 0) {
@@ -71,23 +72,25 @@ public class HttpServer implements IHttpServer {
                     }
                 }
 
+                // Parse the request
                 String sRequest = String.join("\r\n", contents);
                 IHttpRequest request = HttpRequest.parse(sRequest);
-                System.out.println("INCOMING REQUEST");
+                requestCount++;
+                System.out.println(requestCount);
+
+                // Generate response
                 IHttpResponse response = this.handleClientRequest(clientSocket, request);
-                response.setHeader("Connection","keep-alive");
                 response.setHeader("Date", new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()));
+                response.setHeader("Content-Length", String.valueOf(response.getBody().length));
+                response.setHeader("Connection", "Keep-Alive");
 
-                String responseString = response.toString();
-                writer.append(responseString);
+                // Serialize response
+                byte[] responseBytes = response.serialize();
 
-                clientSocket.getOutputStream().write(response.getBody());
-                writer.write("\r\n");
+                // Write the response to the stream
+                writer.write(responseBytes);
                 writer.flush();
-                clientSocket.close();
             }
-
-           // clientSocket.close();
 
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
@@ -95,6 +98,8 @@ public class HttpServer implements IHttpServer {
             System.out.println("CLIENT CLOSED THE CONNECTION");
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            requestCount = 0;
         }
     }
 

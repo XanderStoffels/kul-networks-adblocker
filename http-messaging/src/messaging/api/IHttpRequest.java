@@ -11,4 +11,6 @@ public interface IHttpRequest extends IHttpMessage{
     void setUrlTail(String tail);
     String getUrlTail();
 
+    byte[] serialize();
+
 }

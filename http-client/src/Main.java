@@ -6,32 +6,23 @@ import messaging.api.IHttpResponse;
 import messaging.imp.HttpRequest;
 import messaging.model.HttpMethod;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-
 public class Main {
 
     public static void main(String[] args) {
 
-        final String url = "www.google.com";
+        final String url = "www.example.com";
         IHttpClient client = new HttpClient(url);
         try {
             client.connect();
 
             IHttpRequest request = new HttpRequest(HttpMethod.GET);
-            request.setUrlTail("/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png");
+            request.setUrlTail("/");
             //request.setUrlTail("/ad1.jpg");
             request.setHeader("Host", url);
 
             System.out.println(request.toString());
 
-            IHttpResponse response = client.htmlRequest(request);
+            IHttpResponse response = client.request(request);
             System.out.println(toBeautifulString(response));
 
             /*
@@ -78,8 +69,6 @@ public class Main {
             System.exit(1);
       //  } catch (IOException e) {
       //      System.out.println("Could not write file to disk");
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

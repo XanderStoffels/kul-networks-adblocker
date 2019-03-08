@@ -6,6 +6,7 @@ import application.core.receivers.exceptions.BodyReceiverException;
 import application.core.receivers.imp.ChunkedBodyReceiver;
 import application.core.receivers.imp.ContentLengthBodyReceiver;
 import application.exceptions.HttpClientConnectionException;
+import jdk.jshell.spi.ExecutionControl;
 import messaging.api.IHttpRequest;
 import messaging.api.IHttpResponse;
 import messaging.imp.HttpResponse;
@@ -14,10 +15,7 @@ import messaging.model.ResponseStatus;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class HttpClient implements IHttpClient {
@@ -37,7 +35,8 @@ public class HttpClient implements IHttpClient {
 
     @Override
     public IHttpResponse htmlRequest(IHttpRequest request) throws HttpClientConnectionException, IOException {
-        //Best ergens anders file saving doen? zoals in main maar i.p.v. beatifulString, beatifulImage? :p
+       /*
+       //Best ergens anders file saving doen? zoals in main maar i.p.v. beatifulString, beatifulImage? :p
         File file = new File("C:\\users\\Xander\\Desktop\\out.png");
         PrintWriter writer = null;
 
@@ -82,6 +81,8 @@ public class HttpClient implements IHttpClient {
         byte[] imageBytes = receiveImageBody(inputStream, headers);
 
         return new HttpResponse(responseStatus, headers, imageBytes);
+        */
+       return null;
     }
 
     private byte[] receiveImageBody(InputStream inputStream, Map<String, String> headers) {
@@ -91,12 +92,12 @@ public class HttpClient implements IHttpClient {
 
     @Override
     public IHttpResponse request(IHttpRequest request) throws HttpClientConnectionException {
-        PrintWriter writer;
-        BufferedReader reader;
+        BufferedInputStream reader;
+        OutputStream writer;
 
         try {
-            writer = new PrintWriter(socket.getOutputStream());
-            reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            writer = socket.getOutputStream();
+            reader = new BufferedInputStream(socket.getInputStream());
         } catch (IOException e) {
             throw new HttpClientConnectionException("Could not open IO stream from socket.", e);
         }
@@ -153,39 +154,54 @@ public class HttpClient implements IHttpClient {
         return this.port;
     }
 
-    private void sendRequest(IHttpRequest request, PrintWriter writer) {
-        String requestString = request.toString();
-        writer.print(requestString);
-        writer.flush();
+    private void sendRequest(IHttpRequest request, OutputStream writer) throws HttpClientConnectionException {
+        byte[] requestString = request.serialize();
+        try {
+            writer.write(requestString);
+            writer.flush();
+        } catch (IOException e) {
+            throw new HttpClientConnectionException("Could not send request");
+        }
     }
 
-    private ResponseStatus receiveStatus(BufferedReader reader) throws HttpClientConnectionException {
+    private ResponseStatus receiveStatus(BufferedInputStream reader) throws HttpClientConnectionException {
+        final char delimiter = '\n';
+        StringBuilder builder = new StringBuilder();
+
         try {
-            String line = reader.readLine();
-            String[] parts = line.split(" ");
-
-            ResponseStatus status = new ResponseStatus(Integer.parseInt(parts[1]));
-            status.setHttpVersion(line.split(" ")[0]);
-            status.setStatusMessage(Arrays.stream(parts).skip(2).collect(Collectors.joining(" ")));
-
-            return status;
+            while (true) {
+                char c = (char)reader.read();
+                if (c == delimiter) break;
+                builder.append(c);
+            }
         } catch (IOException e) {
             throw new HttpClientConnectionException("Could not receive Response Status", e);
         }
 
+        String[] parts = builder.toString().split(" ");
+        ResponseStatus status = new ResponseStatus(Integer.parseInt(parts[1]));
+        status.setHttpVersion(parts[0]);
+        status.setStatusMessage(Arrays.stream(parts).skip(2).collect(Collectors.joining(" ")));
+
+        return status;
     }
 
-    private Map<String, String> receiveHeaders(BufferedReader reader) throws HttpClientConnectionException {
+    private Map<String, String> receiveHeaders(BufferedInputStream reader) throws HttpClientConnectionException {
+        final String delimiter = "\r\n\r\n";
+        StringBuilder builder = new StringBuilder();
         try {
-            String i;
-            ArrayList<String> headerLines = new ArrayList<>();
-            while ((i = reader.readLine()) != null) {
-                if (i.length() == 0) break;
-                headerLines.add(i);
+            while (!(builder.toString().endsWith(delimiter))) {
+                char c = (char)reader.read();
+                builder.append(c);
             }
 
+        } catch (IOException e) {
+            throw new HttpClientConnectionException("Could not receive headers", e);
+        }
+
+            String[] headerlines = builder.toString().split("\r\n");
             Map<String, String> headers = new HashMap<>();
-            for (String l : headerLines) {
+            for (String l : headerlines) {
                 int index = l.indexOf(':');
                 if (index < 0) {
                     System.out.println("Received a malformed header");
@@ -196,13 +212,9 @@ public class HttpClient implements IHttpClient {
                 headers.put(key, value);
             }
             return headers;
-
-        } catch (IOException e) {
-            throw new HttpClientConnectionException("Could not receive headers", e);
-        }
     }
 
-    private byte[] receiveBody(BufferedReader reader, Map<String, String> headers) throws UnsupportedOperationException, BodyReceiverException {
+    private byte[] receiveBody(BufferedInputStream reader, Map<String, String> headers) throws UnsupportedOperationException, BodyReceiverException {
         // Check if one of the supported headers are present
         final String ContentLength = "Content-Length";
         final String TransferEncoding = "Transfer-Encoding";

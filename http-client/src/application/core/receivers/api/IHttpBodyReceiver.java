@@ -2,9 +2,9 @@ package application.core.receivers.api;
 
 import application.core.receivers.exceptions.BodyReceiverException;
 
-import java.io.BufferedReader;
+import java.io.BufferedInputStream;
 import java.util.Map;
 
 public interface IHttpBodyReceiver {
-    byte[] getBody(BufferedReader reader, Map<String, String> headers) throws BodyReceiverException;
+    byte[] getBody(BufferedInputStream reader, Map<String, String> headers) throws BodyReceiverException;
 }

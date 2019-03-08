@@ -5,6 +5,7 @@ import messaging.model.HttpMethod;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
@@ -42,6 +43,18 @@ public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
     @Override
     public String getUrlTail() {
         return this.urlTail;
+    }
+
+    @Override
+    public byte[] serialize() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(String.format("%s %s %s\r\n", method.name(), this.urlTail, httpVersion));
+        for (Map.Entry<String, String> header : this.headers.entrySet()) {
+            builder.append(String.format("%s: %s\r\n", header.getKey(), header.getValue()));
+        }
+        builder.append("\r\n");
+
+        return builder.toString().getBytes();
     }
 
     @Override

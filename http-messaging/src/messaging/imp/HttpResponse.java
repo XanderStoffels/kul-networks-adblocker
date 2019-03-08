@@ -1,9 +1,7 @@
 package messaging.imp;
 
-
 import messaging.api.IHttpResponse;
 import messaging.model.ResponseStatus;
-
 import java.util.Map;
 
 public class HttpResponse extends BaseHttpMessage implements IHttpResponse {
@@ -21,12 +19,7 @@ public class HttpResponse extends BaseHttpMessage implements IHttpResponse {
     }
 
     @Override
-    public ResponseStatus getResponseStatus() {
-        return this.status;
-    }
-
-    @Override
-    public String toString() {
+    public byte[] serialize() {
         StringBuilder builder = new StringBuilder();
         builder.append(String.format("%s %s %s\r\n",
                 this.status.getHttpVersion(),
@@ -36,6 +29,19 @@ public class HttpResponse extends BaseHttpMessage implements IHttpResponse {
             builder.append(String.format("%s: %s\r\n", kv.getKey(), kv.getValue()));
         }
         builder.append("\r\n");
-        return builder.toString();
+        byte[] statusAndHeaderBytes = builder.toString().getBytes();
+
+        // Combine status, headers and body into one byte array
+        byte[] payload = new byte[statusAndHeaderBytes.length + this.getBody().length];
+        System.arraycopy(statusAndHeaderBytes, 0, payload, 0,statusAndHeaderBytes.length);
+        System.arraycopy(this.getBody(), 0, payload, statusAndHeaderBytes.length,this.getBody().length);
+
+        return payload;
     }
+
+    @Override
+    public ResponseStatus getResponseStatus() {
+        return this.status;
+    }
+
 }

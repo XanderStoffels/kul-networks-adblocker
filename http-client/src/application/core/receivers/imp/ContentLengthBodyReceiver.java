@@ -3,7 +3,7 @@ package application.core.receivers.imp;
 import application.core.receivers.api.IHttpBodyReceiver;
 import application.core.receivers.exceptions.BodyReceiverException;
 
-import java.io.BufferedReader;
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.util.Map;
 
@@ -16,8 +16,8 @@ public class ContentLengthBodyReceiver implements IHttpBodyReceiver {
     }
 
     @Override
-    public byte[] getBody(BufferedReader reader, Map<String, String> headers) throws BodyReceiverException {
-        char[] content = new char[this.contentLength];
+    public byte[] getBody(BufferedInputStream reader, Map<String, String> headers) throws BodyReceiverException {
+        byte[] content = new byte[this.contentLength];
         try {
             reader.read(content);
             return new String(content).getBytes();
