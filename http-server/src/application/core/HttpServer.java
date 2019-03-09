@@ -125,15 +125,13 @@ public class HttpServer implements IHttpServer {
     }
 
     private IHttpResponse handleGetRequest(IHttpRequest request, boolean loadBody) {
-
-        final String contentPath = "C:\\Users\\Xander\\Documents\\Projects\\kul-networks-adblocker\\http-server\\static";
-
+        
         if (request.getUrlTail().equals("/") ||request.getUrlTail().equals("/index")) {
             request.setUrlTail("/index.html");
         }
 
         request.setUrlTail(request.getUrlTail().substring(1));
-        Path requestPath = Paths.get(contentPath, request.getUrlTail());
+        Path requestPath = Paths.get("static", request.getUrlTail());
         File requestFile = requestPath.toFile();
 
         if (!requestFile.exists()) {

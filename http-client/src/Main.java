@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        final String url = "www.example.com";
+        final String url = "www.google.com";
         IHttpClient client = new HttpClient(url);
         try {
             client.connect();
