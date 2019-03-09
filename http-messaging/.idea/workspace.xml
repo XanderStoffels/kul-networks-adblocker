@@ -9,8 +9,11 @@
     <list default="true" id="37b93fc6-2c6d-444d-8ffd-08602e1bd974" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../http-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-client/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/Main.java" afterDir="false" />
+<<<<<<< Updated upstream
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-server/src/application/core/HttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/src/application/core/HttpServer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +55,7 @@
     <session id="-1033741761">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.opened" value="2" />
         </counts>
@@ -69,13 +72,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpRequest.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="221">
               <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+=======
+            <state relative-caret-position="273">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpMessage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
@@ -87,8 +95,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpResponse.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="136">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
+=======
+            <state relative-caret-position="105">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -96,8 +109,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/messaging/imp/BaseHttpMessage.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="306">
               <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+=======
+            <state relative-caret-position="546">
+              <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,21 +126,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/messaging/imp/HttpRequest.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="918">
               <caret line="80" selection-start-line="80" selection-end-line="80" />
+=======
+            <state relative-caret-position="290">
+              <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#parse#0;class#HttpRequest#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/messaging/imp/HttpResponse.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="306">
               <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+=======
+            <state relative-caret-position="252">
+              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#283#284#0" expanded="true" />
+                <element signature="e#319#320#0" expanded="true" />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -170,7 +202,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -183,8 +215,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< Updated upstream
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
+=======
+      <pane id="Scope" />
+>>>>>>> Stashed changes
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,11 +253,23 @@
               <item name="messaging" type="462c0819:PsiDirectoryNode" />
               <item name="imp" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="http-messaging" type="b2602c69:ProjectViewProjectNode" />
+              <item name="http-messaging" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="messaging" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< Updated upstream
       <pane id="Scope" />
+=======
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+>>>>>>> Stashed changes
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -270,15 +318,18 @@
     <option name="totallyTimeSpent" value="4489000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
+<<<<<<< Updated upstream
       <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.13059701" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.1130064" />
+>>>>>>> Stashed changes
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.24070022" />
@@ -311,13 +362,35 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpRequest.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/messaging/imp/BaseHttpMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/messaging/model/HttpMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/messaging/model/ResponseStatus.java">
+>>>>>>> Stashed changes
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -329,30 +402,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/messaging/imp/BaseHttpMessage.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="306">
           <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="273">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/messaging/imp/HttpRequest.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="918">
           <caret line="80" selection-start-line="80" selection-end-line="80" />
+=======
+        <state relative-caret-position="290">
+          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+>>>>>>> Stashed changes
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#parse#0;class#HttpRequest#0" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/messaging/model/HttpMethod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -364,13 +453,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="24" column="25" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="25" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/messaging/model/HttpHeaders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/messaging/imp/HttpResponse.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="306">
           <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+=======
+        <state relative-caret-position="252">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#283#284#0" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+          </folding>
+>>>>>>> Stashed changes
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpHeaders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>

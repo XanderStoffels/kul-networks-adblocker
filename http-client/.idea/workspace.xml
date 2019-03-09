@@ -13,7 +13,6 @@
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-messaging/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-server/src/application/core/HttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/src/application/core/HttpServer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,7 +61,7 @@
     <session id="1286477619">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.13" value="1" />
@@ -72,7 +71,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1824" />
+          <entry key="JAVA" value="1833" />
         </counts>
       </usages-collector>
     </session>
@@ -84,6 +83,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#toBeautifulString#0;class#Main#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/core/api/IHttpClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -253,32 +265,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="imp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="http-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="receivers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="http-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="receivers" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="http-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="receivers" type="462c0819:PsiDirectoryNode" />
               <item name="imp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
