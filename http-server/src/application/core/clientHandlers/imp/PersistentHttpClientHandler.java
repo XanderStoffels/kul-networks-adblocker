@@ -4,6 +4,7 @@ import application.core.clientHandlers.api.IHttpClientHandler;
 import application.responses.*;
 import messaging.api.IHttpRequest;
 import messaging.api.IHttpResponse;
+import messaging.imp.BaseHttpMessage;
 import messaging.imp.HttpRequest;
 import messaging.model.HttpMethod;
 
@@ -31,7 +32,7 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
             reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
             writer = client.getOutputStream();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             return;
         }
 
@@ -40,7 +41,7 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
             requestLoop(reader, writer);
             client.close();
         } catch (IOException e) {
-            System.out.println();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -48,14 +49,17 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
         boolean keepAlive = true;
 
         while (keepAlive) {
+
             // Parse the request
             String sRequest = getRequestString(reader);
             IHttpRequest request = HttpRequest.parse(sRequest);
 
-            keepAlive = "keep-alive".equals(request.getHeaderValue("Connection"));
+            keepAlive = request.getHeaders().getOrEmpty("Connection").equals("keep-alive");
+            if (!request.getHeaders().hasHeader("Host") && request.getHttpVersion().equals("HTTP/1.1"))
+
 
             if (request.getMethod() != HttpMethod.GET && request.getMethod() != HttpMethod.HEAD) {
-                int length = Integer.parseInt(request.getHeaderValue("Content-Length"));
+                int length = Integer.parseInt(request.getHeaders().getOrEmpty("Content-Length"));
 
                 StringBuilder builder = new StringBuilder();
                 while (builder.toString().length() != length)
@@ -68,18 +72,19 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
             IHttpResponse response;
 
             try {
-                response = this.handleClientRequest(request);
+                response = this.handleHttpMethod(request);
             } catch (Exception e) {
                 response = new HttpServerError(String.format("%s\n%s", "An internal server error occurred", e.getMessage()));
             }
 
-            response.setHeader("Date", new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()));
+            response.setHttpVersion(BaseHttpMessage.standardHttpVersion);
+            response.getHeaders().set("Date", new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()));
 
-            if (!response.getHeaders().contains("Content-Length"))
-                response.setHeader("Content-Length", String.valueOf(response.getBody().length));
+            if (!response.getHeaders().hasHeader("Content-Length"))
+                response.getHeaders().set("Content-Length", String.valueOf(response.getBody().length));
 
             if (keepAlive)
-                response.setHeader("Connection", "keep-alive");
+                response.getHeaders().set("Connection", "keep-alive");
 
             // Serialize response
             byte[] responseBytes = response.serialize();
@@ -105,8 +110,7 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
         }
         return String.join("\r\n", contents);
     }
-
-    private IHttpResponse handleClientRequest(IHttpRequest request) throws IOException {
+    private IHttpResponse handleHttpMethod(IHttpRequest request) throws IOException {
         switch (request.getMethod()) {
             case HEAD:
                 return handleGetRequest(request, false);
@@ -142,8 +146,8 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
             IHttpResponse response = new HttpOk();
             String contentType = Files.probeContentType(requestPath);
 
-            response.setHeader("Content-Length", String.valueOf(fileData.length));
-            response.setHeader("Content-Type", contentType);
+            response.getHeaders().set("Content-Length", String.valueOf(fileData.length));
+            response.getHeaders().set("Content-Type", contentType);
             if (loadBody) response.setBody(fileData);
             return response;
 
@@ -154,7 +158,6 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
         return null;
 
     }
-
     private IHttpResponse handlePutRequest(IHttpRequest request) throws IOException {
 
         if (request.getUrlTail().equals("/"))
@@ -170,4 +173,6 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
 
         return new HttpCreated(String.format("%s%s", "user", request.getUrlTail()));
     }
+
+
 }

@@ -7,12 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37b93fc6-2c6d-444d-8ffd-08602e1bd974" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../http-server/src/application/core/clientHandlers/api/IHttpClientHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../http-server/src/application/core/clientHandlers/imp/PersistenHttpClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/messaging/api/IHttpHeaders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/messaging/model/HttpHeaders.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messaging/api/IHttpMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/messaging/api/IHttpMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messaging/imp/BaseHttpMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/messaging/imp/BaseHttpMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messaging/imp/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/messaging/imp/HttpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messaging/imp/HttpResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/messaging/imp/HttpResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messaging/model/ResponseStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/messaging/model/ResponseStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-server/src/application/core/HttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/src/application/core/HttpServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-server/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-server/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,18 +68,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1237" />
+          <entry key="JAVA" value="2279" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="4" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/messaging/imp/HttpRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1512">
-              <caret line="86" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="420">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,22 +95,86 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/messaging/imp/HttpResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+            <state relative-caret-position="399">
+              <caret line="24" column="52" lean-forward="true" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/messaging/model/HttpHeaders.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#139#140#0" expanded="true" />
+                <element signature="e#177#178#0" expanded="true" />
+                <element signature="e#258#259#0" expanded="true" />
+                <element signature="e#311#312#0" expanded="true" />
+                <element signature="e#570#571#0" expanded="true" />
+                <element signature="e#596#597#0" expanded="true" />
+                <element signature="e#684#685#0" expanded="true" />
+                <element signature="e#748#749#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpHeaders.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/messaging/model/ResponseStatus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="210">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpMessage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/messaging/imp/BaseHttpMessage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1180#1181#0" expanded="true" />
+                <element signature="e#1214#1215#0" expanded="true" />
+                <element signature="e#818#819#0" expanded="true" />
+                <element signature="e#852#853#0" expanded="true" />
+                <element signature="e#1282#1283#0" expanded="true" />
+                <element signature="e#1328#1329#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -113,13 +188,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/messaging/model/HttpMethod.java" />
-        <option value="$PROJECT_DIR$/src/messaging/api/IHttpMessage.java" />
-        <option value="$PROJECT_DIR$/src/messaging/imp/BaseHttpMessage.java" />
         <option value="$PROJECT_DIR$/src/messaging/api/IHttpResponse.java" />
         <option value="$PROJECT_DIR$/src/messaging/api/IHttpRequest.java" />
-        <option value="$PROJECT_DIR$/src/messaging/imp/HttpResponse.java" />
-        <option value="$PROJECT_DIR$/src/messaging/imp/HttpRequest.java" />
         <option value="$PROJECT_DIR$/src/messaging/model/ResponseStatus.java" />
+        <option value="$PROJECT_DIR$/src/messaging/model/Headers.java" />
+        <option value="$PROJECT_DIR$/src/messaging/api/IHttpMessage.java" />
+        <option value="$PROJECT_DIR$/src/messaging/model/HttpHeaders.java" />
+        <option value="$PROJECT_DIR$/src/messaging/imp/HttpResponse.java" />
+        <option value="$PROJECT_DIR$/src/messaging/imp/BaseHttpMessage.java" />
+        <option value="$PROJECT_DIR$/src/messaging/imp/HttpRequest.java" />
       </list>
     </option>
   </component>
@@ -130,8 +207,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-173" />
-    <option name="y" value="37" />
+    <option name="x" value="41" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -204,6 +280,11 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="messaging.model" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -243,7 +324,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.060234543" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.15724947" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.24070022" />
@@ -283,24 +364,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/messaging/imp/BaseHttpMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -318,27 +385,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/messaging/imp/HttpRequest.java">
+    <entry file="file://$PROJECT_DIR$/src/messaging/model/ResponseStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="210">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/messaging/model/HttpHeaders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#139#140#0" expanded="true" />
+            <element signature="e#177#178#0" expanded="true" />
+            <element signature="e#258#259#0" expanded="true" />
+            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#748#749#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/messaging/api/IHttpHeaders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/messaging/imp/BaseHttpMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1180#1181#0" expanded="true" />
+            <element signature="e#1214#1215#0" expanded="true" />
+            <element signature="e#818#819#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+            <element signature="e#1328#1329#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/messaging/imp/HttpResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+        <state relative-caret-position="399">
+          <caret line="24" column="52" lean-forward="true" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/messaging/model/ResponseStatus.java">
+    <entry file="file://$PROJECT_DIR$/src/messaging/imp/HttpRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="420">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

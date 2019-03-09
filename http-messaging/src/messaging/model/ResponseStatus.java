@@ -1,26 +1,16 @@
 package messaging.model;
 
 public class ResponseStatus {
-    private String httpVersion;
     private int statusCode;
     private String statusMessage;
 
     public ResponseStatus(int statusCode, String message) {
         this.statusCode = statusCode;
-        this.setHttpVersion("HTTP/1.1");
         this.setStatusMessage(message);
     }
 
     public boolean isSuccessful() {
         return (statusCode >= 200 && statusCode < 300);
-    }
-
-    public String getHttpVersion() {
-        return httpVersion;
-    }
-
-    public void setHttpVersion(String httpVersion) {
-        this.httpVersion = httpVersion;
     }
 
     public int getStatusCode() {

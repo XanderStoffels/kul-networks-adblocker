@@ -1,6 +1,7 @@
 package messaging.imp;
 
 import messaging.api.IHttpResponse;
+import messaging.model.HttpHeaders;
 import messaging.model.ResponseStatus;
 import java.util.Map;
 
@@ -12,22 +13,26 @@ public class HttpResponse extends BaseHttpMessage implements IHttpResponse {
         this.status = status;
     }
 
-    public HttpResponse(ResponseStatus status, Map<String, String> headers, byte[] body) {
+    public HttpResponse(ResponseStatus status, byte[] body) {
         this(status);
-        this.headers = headers;
+        this.headers = new HttpHeaders();
         this.body = body;
     }
 
     @Override
     public byte[] serialize() {
+        // Status
         StringBuilder builder = new StringBuilder();
         builder.append(String.format("%s %s %s\r\n",
-                this.status.getHttpVersion(),
+                this.getHttpVersion(),
                 this.status.getStatusCode(),
                 this.status.getStatusMessage()));
-        for (Map.Entry<String,String> kv : this.headers.entrySet()) {
-            builder.append(String.format("%s: %s\r\n", kv.getKey(), kv.getValue()));
-        }
+
+        // Headers
+        this.headers.getValues().forEach((key, value) -> {
+            builder.append(String.format("%s: %s\r\n", key, value));
+        });
+
         builder.append("\r\n");
         byte[] statusAndHeaderBytes = builder.toString().getBytes();
 

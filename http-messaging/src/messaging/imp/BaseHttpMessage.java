@@ -1,42 +1,20 @@
 package messaging.imp;
 
+import messaging.api.IHttpHeaders;
 import messaging.api.IHttpMessage;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import messaging.model.HttpHeaders;
 
 public class BaseHttpMessage implements IHttpMessage {
 
-    protected Map<String,String> headers;
+    public static final String standardHttpVersion = "HTTP/1.1";
+
+    protected IHttpHeaders headers;
     protected byte[] body;
+    protected String httpVersion;
 
     protected BaseHttpMessage() {
-        this.headers = new HashMap<>();
+        this.headers = new HttpHeaders();
         this.body = new byte[] {};
-    }
-
-    protected boolean hasHeader(String header) {
-        return this.headers.containsKey(header);
-    }
-
-    @Override
-    public void setHeader(String header, String value) {
-        if (hasHeader(header)) {
-            this.headers.replace(header, value);
-        } else {
-            this.headers.put(header, value);
-        }
-    }
-
-    @Override
-    public String getHeaderValue(String header) {
-        return this.headers.getOrDefault(header, null);
-    }
-
-    @Override
-    public Set<String> getHeaders() {
-        return this.headers.keySet();
     }
 
     @Override
@@ -49,5 +27,18 @@ public class BaseHttpMessage implements IHttpMessage {
         return this.body;
     }
 
+    @Override
+    public String getHttpVersion() {
+        return httpVersion;
+    }
 
+    @Override
+    public IHttpHeaders getHeaders() {
+        return this.headers;
+    }
+
+    @Override
+    public void setHttpVersion(String httpVersion) {
+        this.httpVersion = httpVersion;
+    }
 }

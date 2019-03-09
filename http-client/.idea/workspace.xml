@@ -10,12 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00b973bb-8154-459c-abdb-cd87dcb3900e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../http-server/src/application/core/clientHandlers/api/IHttpClientHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../http-server/src/application/core/clientHandlers/imp/PersistenHttpClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/api/IHttpHeaders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/model/HttpHeaders.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-messaging/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/api/IHttpMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/api/IHttpMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/BaseHttpMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/BaseHttpMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/model/ResponseStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/model/ResponseStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-server/src/application/core/HttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/src/application/core/HttpServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-server/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-server/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -214,9 +220,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-173" />
-    <option name="y" value="37" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="41" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -346,7 +351,7 @@
     <option name="totallyTimeSpent" value="64532000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.77648765" visible="true" weight="0.048507463" />

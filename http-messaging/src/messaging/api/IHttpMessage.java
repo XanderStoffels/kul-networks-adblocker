@@ -1,11 +1,11 @@
 package messaging.api;
 
-import java.util.Set;
 
 public interface IHttpMessage {
-    void setHeader(String header, String value);
-    String getHeaderValue(String header);
-    Set<String> getHeaders();
+    IHttpHeaders getHeaders();
+
+    void setHttpVersion(String httpVersion);
+    String getHttpVersion();
 
     void setBody(byte[] body);
     byte[] getBody();
