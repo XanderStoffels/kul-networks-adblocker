@@ -10,8 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00b973bb-8154-459c-abdb-cd87dcb3900e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-server/src/application/responses/HttpCreated.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-server/src/application/responses/HttpForbidden.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-server/src/application/responses/HttpNotFound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-server/src/application/responses/HttpOk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-server/src/application/responses/HttpServerError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-server/static/user/pls2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-server/static/user/pls3.txt.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-messaging/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/model/ResponseStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/model/ResponseStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-server/src/application/core/HttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/src/application/core/HttpServer.java" afterDir="false" />
     </list>
@@ -82,8 +91,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+            <state relative-caret-position="323">
+              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#toBeautifulString#0;class#Main#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/core/api/IHttpClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -212,8 +234,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -255,45 +278,18 @@
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="imp" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="http-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="receivers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="http-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="receivers" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="http-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http-client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="receivers" type="462c0819:PsiDirectoryNode" />
-              <item name="imp" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551891557898" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552136414797" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../http-server" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -353,14 +349,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63191000" />
+    <option name="totallyTimeSpent" value="64532000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.78020376" visible="true" weight="0.19722815" />
-      <window_info id="Structure" order="1" sideWeight="0.21979621" side_tool="true" visible="true" weight="0.19722815" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.77874815" visible="true" weight="0.09808102" />
+      <window_info id="Structure" order="1" sideWeight="0.22125182" side_tool="true" visible="true" weight="0.09808102" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -368,7 +364,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32822758" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49307036" visible="true" weight="0.25568798" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49253732" visible="true" weight="0.25568798" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4968017" weight="0.3394794" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -377,7 +373,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50692964" side_tool="true" visible="true" weight="0.25568798" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5074627" side_tool="true" visible="true" weight="0.25568798" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4978678" weight="0.324295" />
       <window_info anchor="bottom" id="Statistic" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -499,17 +495,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/core/api/IHttpClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        <state relative-caret-position="272">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        <state relative-caret-position="323">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#toBeautifulString#0;class#Main#0" />
           </folding>
         </state>
       </provider>

@@ -83,8 +83,8 @@ public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
         return builder.toString();
     }
 
-    public static HttpRequest parse(String header) {
-        String[] parts =  header.split("\r\n");
+    public static HttpRequest parse(String requestString) {
+        String[] parts =  requestString.split("\r\n");
         if(parts.length < 1 )
             throw new IllegalArgumentException("Unable to parse string");
 
@@ -121,6 +121,8 @@ public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
             String value = l.substring(index + 1).trim();
             httpRequest.setHeader(key, value);
         }
+
+
 
         return httpRequest;
     }

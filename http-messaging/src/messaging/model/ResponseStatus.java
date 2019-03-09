@@ -5,8 +5,10 @@ public class ResponseStatus {
     private int statusCode;
     private String statusMessage;
 
-    public ResponseStatus(int statusCode) {
+    public ResponseStatus(int statusCode, String message) {
         this.statusCode = statusCode;
+        this.setHttpVersion("HTTP/1.1");
+        this.setStatusMessage(message);
     }
 
     public boolean isSuccessful() {
