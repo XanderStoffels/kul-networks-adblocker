@@ -52,7 +52,11 @@ public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
         });
 
         builder.append("\r\n");
-        return builder.toString().getBytes();
+        byte[] metadata = builder.toString().getBytes();
+        byte[] total = new byte[metadata.length + getBody().length];
+        System.arraycopy(metadata, 0, total, 0, metadata.length);
+        System.arraycopy(getBody(), 0, total, metadata.length, getBody().length);
+        return total;
     }
 
     public static HttpRequest parse(String requestString) {

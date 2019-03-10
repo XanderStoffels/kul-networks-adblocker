@@ -5,18 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6158b69-feeb-4d57-ac4f-ef3edd8b02e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/api/IHttpHeaders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/model/HttpHeaders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/WebBrowser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/model/UrlParts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/receivers/api/IHttpBodyReceiver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-client/src/application/exceptions/HttpClientException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-client/src/application/helpers/HttpHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-messaging/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/.idea/artifacts/http_client_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/.idea/artifacts/http_client_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/api/IHttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/api/IHttpClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/imp/HttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/imp/HttpClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/receivers/api/IHttpBodyReceiver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/receivers/exceptions/BodyReceiverException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/receivers/exceptions/BodyReceiverException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/receivers/imp/ChunkedBodyReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/receivers/imp/ChunkedBodyReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/receivers/imp/ContentLengthBodyReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/receivers/imp/ContentLengthBodyReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/exceptions/HttpClientConnectionException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-messaging/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/api/IHttpMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/api/IHttpMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/BaseHttpMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/BaseHttpMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/model/ResponseStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/model/ResponseStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/responses/HttpCreated.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/responses/HttpCreated.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,82 +37,8 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/http_server$Main.ic" NAME="Main Coverage Results" MODIFIED="1551904683121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-149275251">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="class" value="6" />
-          <entry key="helloworld" value="1" />
-          <entry key="java" value="13" />
-          <entry key="txt" value="6" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="6" />
-          <entry key="JAVA" value="13" />
-          <entry key="PLAIN_TEXT" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="4096" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="4096" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="959827715">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="4723" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="7" />
-          <entry key="HTML" value="1" />
-          <entry key="JAVA" value="5" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getRequestString#0;class#PersistentHttpClientHandler#0" />
-                <element signature="method#handleHttpMethod#0;class#PersistentHttpClientHandler#0" />
-                <element signature="method#handlePutRequest#0;class#PersistentHttpClientHandler#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -130,7 +65,6 @@
         <option value="$PROJECT_DIR$/src/application/exceptions/HttpServerException.java" />
         <option value="$PROJECT_DIR$/static/index.html" />
         <option value="$PROJECT_DIR$/src/application/responses/HttpForbidden.java" />
-        <option value="$PROJECT_DIR$/src/application/responses/HttpCreated.java" />
         <option value="$PROJECT_DIR$/src/application/responses/HttpOk.java" />
         <option value="$PROJECT_DIR$/src/application/responses/HttpNotFound.java" />
         <option value="$PROJECT_DIR$/src/application/responses/HttpServerError.java" />
@@ -139,19 +73,14 @@
         <option value="$PROJECT_DIR$/src/application/core/HttpServer.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" />
+        <option value="$PROJECT_DIR$/src/application/responses/HttpCreated.java" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="41" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="135" />
+    <option name="width" value="1360" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -161,7 +90,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -200,24 +128,6 @@
               <item name="http-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="clientHandlers" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="http-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="clientHandlers" type="462c0819:PsiDirectoryNode" />
-              <item name="imp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="http-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="http-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="exceptions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -232,7 +142,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -290,17 +200,19 @@
       <workItem from="1551807519819" duration="6735000" />
       <workItem from="1552128531086" duration="435000" />
       <workItem from="1552130418055" duration="5972000" />
+      <workItem from="1552151110923" duration="2454000" />
+      <workItem from="1552170055742" duration="1802000" />
+      <workItem from="1552214882467" duration="131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13142000" />
+    <option name="totallyTimeSpent" value="17529000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="108" y="0" width="1088" height="832" extended-state="1" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1380597" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2159533" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -309,7 +221,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.33260393" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.20065077" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49731544" visible="true" weight="0.19971672" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32936078" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -317,9 +229,10 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50159913" side_tool="true" visible="true" weight="0.20065077" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.4978678" weight="0.324295" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5026846" side_tool="true" visible="true" weight="0.19857143" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49731544" weight="0.32294616" />
       <window_info anchor="bottom" id="Statistic" order="12" />
+      <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -330,13 +243,11 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" />
+      <window_info anchor="right" id="Maven" order="10" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -347,26 +258,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/server/JavaHTTPServer.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/net/ServerSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="512" column="17" selection-start-line="512" selection-start-column="11" selection-end-line="512" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/exceptions/HttpServerException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
-          <folding>
-            <element signature="e#174#175#0" expanded="true" />
-            <element signature="e#204#205#0" expanded="true" />
-            <element signature="e#271#272#0" expanded="true" />
-            <element signature="e#308#309#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/net/ServerSocket.java" />
     <entry file="file://$PROJECT_DIR$/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -445,23 +337,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/responses/HttpCreated.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/java/lang/Object.java" />
     <entry file="file://$PROJECT_DIR$/src/application/core/clientHandlers/api/IHttpClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -503,13 +379,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
+        <state relative-caret-position="160">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getRequestString#0;class#PersistentHttpClientHandler#0" />
             <element signature="method#handleHttpMethod#0;class#PersistentHttpClientHandler#0" />
             <element signature="method#handlePutRequest#0;class#PersistentHttpClientHandler#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/responses/HttpCreated.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/exceptions/HttpServerException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+          <folding>
+            <element signature="e#174#175#0" expanded="true" />
+            <element signature="e#204#205#0" expanded="true" />
+            <element signature="e#271#272#0" expanded="true" />
+            <element signature="e#308#309#0" expanded="true" />
           </folding>
         </state>
       </provider>

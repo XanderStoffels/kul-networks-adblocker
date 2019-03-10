@@ -1,5 +1,6 @@
 package messaging.imp;
 
+import messaging.api.IHttpHeaders;
 import messaging.api.IHttpResponse;
 import messaging.model.HttpHeaders;
 import messaging.model.ResponseStatus;
@@ -11,11 +12,13 @@ public class HttpResponse extends BaseHttpMessage implements IHttpResponse {
 
     public HttpResponse(ResponseStatus status) {
         this.status = status;
+        this.headers = new HttpHeaders();
+        this.body = new byte[0];
     }
 
-    public HttpResponse(ResponseStatus status, byte[] body) {
-        this(status);
-        this.headers = new HttpHeaders();
+    public HttpResponse(ResponseStatus status, IHttpHeaders headers, byte[] body) {
+        this.status = status;
+        this.headers = headers;
         this.body = body;
     }
 

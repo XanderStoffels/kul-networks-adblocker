@@ -93,6 +93,9 @@ public class HttpClient implements IHttpClient {
 
     @Override
     public IHttpResponse request(IHttpRequest request) throws HttpClientException {
+        if (socket == null)
+            connect();
+
         BufferedInputStream reader;
         OutputStream writer;
 
