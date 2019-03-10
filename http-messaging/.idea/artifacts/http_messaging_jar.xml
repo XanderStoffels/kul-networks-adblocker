@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="http-messaging:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/http_messaging_jar</output-path>
+    <root id="archive" name="http-messaging.jar">
+      <element id="module-output" name="http-messaging" />
+    </root>
+  </artifact>
+</component>
