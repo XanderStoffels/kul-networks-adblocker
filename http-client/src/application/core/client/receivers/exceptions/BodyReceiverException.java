@@ -1,4 +1,4 @@
-package application.core.receivers.exceptions;
+package application.core.client.receivers.exceptions;
 
 public class BodyReceiverException extends Exception {
     public BodyReceiverException() {

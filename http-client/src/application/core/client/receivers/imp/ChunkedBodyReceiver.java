@@ -1,17 +1,17 @@
-package application.core.receivers.imp;
+package application.core.client.receivers.imp;
 
-import application.core.receivers.api.IHttpBodyReceiver;
-import application.core.receivers.exceptions.BodyReceiverException;
+import application.core.client.receivers.api.IHttpBodyReceiver;
+import application.core.client.receivers.exceptions.BodyReceiverException;
+import messaging.api.IHttpHeaders;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.Map;
 
 public class ChunkedBodyReceiver implements IHttpBodyReceiver {
 
     @Override
-    public byte[] getBody(BufferedInputStream reader, Map<String, String> headers) throws BodyReceiverException {
+    public byte[] getBody(BufferedInputStream reader, IHttpHeaders headers) throws BodyReceiverException {
 
         final int sleepTime = 50;
         boolean contentAvailable = true;
