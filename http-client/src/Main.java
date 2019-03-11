@@ -9,10 +9,8 @@ import messaging.imp.HttpRequest;
 import messaging.imp.HttpResponse;
 import messaging.model.HttpMethod;
 
-import java.awt.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Paths;
 
 public class Main {
 
@@ -28,9 +26,10 @@ public class Main {
             response.getHeaders().getValues().forEach((key, value) -> {
                 System.out.printf("%s: %s\n", key, value);
             });
-            System.out.println();
 
-            FileOutputStream out = new FileOutputStream("C:\\Users\\xande\\Desktop\\out.txt");
+            System.out.println(response.getBody().length);
+
+            FileOutputStream out = new FileOutputStream("C:\\Users\\xande\\Desktop\\out.png");
             out.write(response.getBody());
             out.flush();
             out.close();
@@ -43,6 +42,5 @@ public class Main {
 
 
     }
-    
 
 }

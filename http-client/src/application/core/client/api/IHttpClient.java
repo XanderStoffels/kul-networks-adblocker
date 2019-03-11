@@ -13,10 +13,7 @@ public interface IHttpClient {
 
     IHttpResponse request(IHttpRequest request) throws HttpClientException;
 
-    IHttpResponse htmlRequest(IHttpRequest request) throws HttpClientException, IOException;
-
     String getBaseUrl();
 
     int getPort();
-
 }

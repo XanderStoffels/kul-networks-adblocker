@@ -20,7 +20,7 @@ public class ContentLengthBodyReceiver implements IHttpBodyReceiver {
         byte[] content = new byte[this.contentLength];
         try {
             reader.read(content);
-            return new String(content).getBytes();
+            return content;
         } catch (IOException e) {
             throw new BodyReceiverException("Could not receive body content", e);
         }

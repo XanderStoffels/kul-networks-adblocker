@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6158b69-feeb-4d57-ac4f-ef3edd8b02e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/application/responses/HttpBadRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-client/.idea/artifacts/http_client_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/.idea/artifacts/http_client_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-client/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/client/api/IHttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/api/IHttpClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/client/imp/HttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/imp/HttpClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/client/receivers/imp/ChunkedBodyReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/receivers/imp/ChunkedBodyReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/imp/HttpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-messaging/src/messaging/model/HttpHeaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/src/messaging/model/HttpHeaders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/client/receivers/imp/ContentLengthBodyReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/receivers/imp/ContentLengthBodyReceiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/user/fancypants.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/user/pls2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/user/pls3.txt.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/user/pls9.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -129,7 +121,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="952" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
@@ -253,15 +245,15 @@
       <workItem from="1552214882467" duration="131000" />
       <workItem from="1552242033387" duration="2016000" />
       <workItem from="1552306992337" duration="172000" />
-      <workItem from="1552307925860" duration="3763000" />
+      <workItem from="1552307925860" duration="3774000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23480000" />
+    <option name="totallyTimeSpent" value="23491000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="762" y="0" width="781" height="830" extended-state="1" />
+    <frame x="762" y="0" width="781" height="830" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2884882" />
