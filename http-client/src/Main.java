@@ -9,21 +9,40 @@ import messaging.imp.HttpRequest;
 import messaging.imp.HttpResponse;
 import messaging.model.HttpMethod;
 
+import java.awt.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Paths;
+
 public class Main {
 
     public static void main(String[] args) {
-
-        WebBrowser browser = new WebBrowser(80);
-        browser.get("localhost");
-        System.out.println("Done!");
-
-        IHttpClient client = new HttpClient("www.google.com");
+        IHttpClient client = new HttpClient("localhost");
+        IHttpRequest request = new HttpRequest(HttpMethod.GET);
+        request.getHeaders().set("Host", "localhost");
+        request.setUrlTail("/ad1.jpg");
 
 
-        String x = "Hello world!";
-        IHttpRequest request = new HttpRequest(HttpMethod.PUT);
-        request.setBody(x.getBytes());
+        try {
+            IHttpResponse response = client.request(request);
+            response.getHeaders().getValues().forEach((key, value) -> {
+                System.out.printf("%s: %s\n", key, value);
+            });
+            System.out.println();
+
+            FileOutputStream out = new FileOutputStream("C:\\Users\\xande\\Desktop\\out.txt");
+            out.write(response.getBody());
+            out.flush();
+            out.close();
+
+        } catch (HttpClientException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
+    
 
 }

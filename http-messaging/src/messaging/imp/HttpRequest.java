@@ -69,6 +69,7 @@ public class HttpRequest extends BaseHttpMessage implements IHttpRequest {
 
         try {
             httpRequest.setMethod(HttpMethod.valueOf(statusParts[0]));
+            httpRequest.setHttpVersion(statusParts[2]);
         } catch (Exception e) {
             throw new IllegalArgumentException("Http method not supported");
         }

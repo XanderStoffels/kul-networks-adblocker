@@ -36,10 +36,10 @@ public class HttpClient implements IHttpClient {
 
     @Override
     public IHttpResponse htmlRequest(IHttpRequest request) throws HttpClientException, IOException {
-       /*
+
        //Best ergens anders file saving doen? zoals in main maar i.p.v. beatifulString, beatifulImage? :p
-        File file = new File("C:\\users\\Xander\\Desktop\\out.png");
-        PrintWriter writer = null;
+        File file = new File("C:\\users\\xande\\Desktop\\out.png");
+        OutputStream writer = null;
 
         //BufferedReader heb ik hier gelaten om sendRequest en getHeaders niet aan te passen
         BufferedReader reader = null;
@@ -48,8 +48,7 @@ public class HttpClient implements IHttpClient {
         try {
             fileOutputStream = new FileOutputStream(file);
             inputStream = socket.getInputStream();
-            writer = new PrintWriter(socket.getOutputStream());
-            reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            writer = socket.getOutputStream();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -77,13 +76,8 @@ public class HttpClient implements IHttpClient {
         inputStream.close();
         fileOutputStream.close();
 
-        ResponseStatus responseStatus = receiveStatus(reader);
-        Map<String, String> headers = receiveHeaders(reader);
-        byte[] imageBytes = receiveImageBody(inputStream, headers);
-
-        return new HttpResponse(responseStatus, headers, imageBytes);
-        */
        return null;
+
     }
 
     private byte[] receiveImageBody(InputStream inputStream, Map<String, String> headers) {

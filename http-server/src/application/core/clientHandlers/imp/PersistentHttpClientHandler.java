@@ -1,6 +1,7 @@
 package application.core.clientHandlers.imp;
 
 import application.core.clientHandlers.api.IHttpClientHandler;
+import application.exceptions.HttpServerException;
 import application.responses.*;
 import messaging.api.IHttpRequest;
 import messaging.api.IHttpResponse;
@@ -40,8 +41,8 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
         try {
             requestLoop(reader, writer);
             client.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -50,15 +51,30 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
 
         while (keepAlive) {
 
-            // Parse the request
+            // Parse the request headers
             String sRequest = getRequestString(reader);
+            System.out.println(sRequest);
+            //Todo fix parse http version
             IHttpRequest request = HttpRequest.parse(sRequest);
+            System.out.println(request.getMethod().name());
 
-            keepAlive = request.getHeaders().getOrEmpty("Connection").equals("keep-alive");
-            if (!request.getHeaders().hasHeader("Host") && request.getHttpVersion().equals("HTTP/1.1"))
+            keepAlive = request.getHeaders().getOrEmpty("Connection").equals("keep-alive")
+                    && request.getHttpVersion().equals("HTTP/1.1");
 
+            // Check for Host header
+            if (!request.getHeaders().hasHeader("Host")){
+                writer.write(new HttpBadRequest("Missing Host header").serialize());
+                writer.flush();
+                continue;
+            }
 
+            // Read the body if necessary
             if (request.getMethod() != HttpMethod.GET && request.getMethod() != HttpMethod.HEAD) {
+                if (!request.getHeaders().hasHeader("Content-Length")){
+                    writer.write(new HttpBadRequest("Missing Content-Length header").serialize());
+                    writer.flush();
+                    continue;
+                }
                 int length = Integer.parseInt(request.getHeaders().getOrEmpty("Content-Length"));
 
                 StringBuilder builder = new StringBuilder();
@@ -96,13 +112,14 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
     }
 
     private String getRequestString(BufferedReader reader) throws IOException {
+        // Read the headline and headers
         boolean contentAvailable = true;
         List<String> contents = new ArrayList<>();
 
         // Read incoming request
         while (contentAvailable) {
             String content = reader.readLine();
-            if (content.length() == 0) {
+            if (content == null || content.length() == 0) {
                 contentAvailable = false;
             } else {
                 contents.add(content);
@@ -121,6 +138,8 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
             case POST:
                 return new HttpOk();
         }
+
+
         return new HttpServerError(String.format("Method %s is not supported", request.getMethod().name()));
     }
 
@@ -166,10 +185,13 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
         if (request.getUrlTail().startsWith("/user"))
             return new HttpForbidden("You can not PUT directly into the user folder");
 
+        Paths.get("static", "user").toFile().mkdir();
         Path filePath = Paths.get("static", "user", request.getUrlTail() + ".txt");
 
         FileOutputStream fos = new FileOutputStream(filePath.toFile());
         fos.write(request.getBody());
+        fos.flush();
+        fos.close();
 
         return new HttpCreated(String.format("%s%s", "user", request.getUrlTail()));
     }

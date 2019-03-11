@@ -17,7 +17,6 @@ public class ChunkedBodyReceiver implements IHttpBodyReceiver {
         boolean contentAvailable = true;
         ByteArrayOutputStream bodyStream = new ByteArrayOutputStream();
         try {
-
             do {
                 // Introduce sleeping time so the server has time to chunk
                 Thread.sleep(sleepTime);
