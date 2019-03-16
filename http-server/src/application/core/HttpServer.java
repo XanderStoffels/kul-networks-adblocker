@@ -29,6 +29,7 @@ public class HttpServer implements IHttpServer {
         if (serverSocket == null) return;
         running = true;
 
+        System.out.println("Server started");
         ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
         while (isRunning()) {
             try {

@@ -1,46 +1,51 @@
-import application.core.browser.WebBrowser;
 import application.core.client.api.IHttpClient;
 import application.core.client.imp.HttpClient;
 import application.exceptions.HttpClientException;
-import application.helpers.HttpHelper;
 import messaging.api.IHttpRequest;
 import messaging.api.IHttpResponse;
 import messaging.imp.HttpRequest;
-import messaging.imp.HttpResponse;
 import messaging.model.HttpMethod;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
+import org.apache.commons.lang3.StringUtils;
 
 public class Main {
-
     public static void main(String[] args) {
-        IHttpClient client = new HttpClient("localhost");
-        IHttpRequest request = new HttpRequest(HttpMethod.GET);
-        request.getHeaders().set("Host", "localhost");
-        request.setUrlTail("/ad1.jpg");
+        if (args.length != 3) {
+            System.out.println("Wrong amount of arguments!");
+            System.exit(1);
+        }
 
+        final String verb = args[0];
+        final String uri = args[1];
 
+        final String tail;
+        final String baseUrl;
+        final String[] uriParts = uri.split("/", 2);
+        if (uriParts.length != 2) {
+            tail = "/";
+        } else {
+            tail = "/" + uriParts[1];
+        }
+        baseUrl = uriParts[0];
+
+        if (!StringUtils.isNumeric(args[2])) {
+            System.out.println("The port has to be a numeric value!");
+            System.exit(1);
+        }
+        final int port = Integer.parseInt(args[2]);
+
+        HttpMethod method = HttpMethod.valueOf(verb.toUpperCase());
+
+        IHttpRequest request = new HttpRequest(method);
+        request.setUrlTail(tail);
+
+        IHttpClient client = new HttpClient(baseUrl, port);
         try {
             IHttpResponse response = client.request(request);
-            response.getHeaders().getValues().forEach((key, value) -> {
-                System.out.printf("%s: %s\n", key, value);
-            });
-
-            System.out.println(response.getBody().length);
-
-            FileOutputStream out = new FileOutputStream("C:\\Users\\xande\\Desktop\\out.png");
-            out.write(response.getBody());
-            out.flush();
-            out.close();
-
+            System.out.println(new String(response.getBody()));
         } catch (HttpClientException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
 
 
     }
-
 }

@@ -54,12 +54,11 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
             // Parse the request headers
             String sRequest = getRequestString(reader);
             System.out.println(sRequest);
-            //Todo fix parse http version
             IHttpRequest request = HttpRequest.parse(sRequest);
-            System.out.println(request.getMethod().name());
 
-            keepAlive = request.getHeaders().getOrEmpty("Connection").equals("keep-alive")
-                    && request.getHttpVersion().equals("HTTP/1.1");
+            keepAlive = request.getHttpVersion().equals("HTTP/1.1");
+            if (keepAlive && request.getHeaders().getOrEmpty("Connection").equals("close"))
+                keepAlive = false;
 
             // Check for Host header
             if (!request.getHeaders().hasHeader("Host")){

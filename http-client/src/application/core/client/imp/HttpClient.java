@@ -144,19 +144,19 @@ public class HttpClient implements IHttpClient {
             throw new HttpClientException("Could not receive headers", e);
         }
 
-            String[] headerlines = builder.toString().split("\r\n");
-            IHttpHeaders headers = new HttpHeaders();
-            for (String l : headerlines) {
-                int index = l.indexOf(':');
-                if (index < 0) {
-                    System.out.println("Received a malformed header");
-                    continue;
-                }
-                String key = l.substring(0, index).trim();
-                String value = l.substring(index + 1).trim();
-                headers.set(key, value);
+        String[] headerlines = builder.toString().split("\r\n");
+        IHttpHeaders headers = new HttpHeaders();
+        for (String l : headerlines) {
+            int index = l.indexOf(':');
+            if (index < 0) {
+                System.out.println("Received a malformed header");
+                continue;
             }
-            return headers;
+            String key = l.substring(0, index).trim();
+            String value = l.substring(index + 1).trim();
+            headers.set(key, value);
+        }
+        return headers;
     }
 
     private byte[] receiveBody(BufferedInputStream reader, IHttpHeaders headers) throws UnsupportedOperationException, BodyReceiverException {

@@ -3,6 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/http_client_jar</output-path>
     <root id="archive" name="http-client.jar">
       <element id="module-output" name="http-client" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../http-messaging/out/artifacts/http_messaging_jar/http-messaging.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.10.2/jsoup-1.10.2.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
