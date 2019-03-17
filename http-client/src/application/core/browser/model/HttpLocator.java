@@ -3,13 +3,15 @@ package application.core.browser.model;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public class UrlParts {
+public class HttpLocator {
     private String host;
     private String tail;
+    private int port;
 
-    public UrlParts(String host, String tail) {
+    public HttpLocator(String host, String tail, int port) {
         this.host = host;
         this.tail = tail;
+        this.port = port;
     }
 
     public String getHost() {
@@ -28,7 +30,15 @@ public class UrlParts {
         this.tail = tail;
     }
 
-    public static UrlParts parse(String line) {
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public static HttpLocator parse(String line, int port) {
         String host;
         String tail = "/";
         if (line.contains("/")){
@@ -42,6 +52,6 @@ public class UrlParts {
         } else {
             host = line;
         }
-        return new UrlParts(host, tail);
+        return new HttpLocator(host, tail, port);
     }
 }

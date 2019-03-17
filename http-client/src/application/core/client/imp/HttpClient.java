@@ -103,6 +103,7 @@ public class HttpClient implements IHttpClient {
     }
 
     private void sendRequest(IHttpRequest request, OutputStream writer) throws HttpClientException {
+        System.out.println("REQUESTING " + request.getUrlTail());
         byte[] requestString = request.serialize();
         try {
             writer.write(requestString);
@@ -126,6 +127,7 @@ public class HttpClient implements IHttpClient {
             throw new HttpClientException("Could not receive Response Status", e);
         }
 
+        System.out.println(builder.toString());
         String[] parts = builder.toString().split(" ");
         return new ResponseStatus(Integer.parseInt(parts[1]),
                 Arrays.stream(parts).skip(2).collect(Collectors.joining(" ")));
@@ -181,5 +183,7 @@ public class HttpClient implements IHttpClient {
             throw new UnsupportedOperationException("The server's body-response protocol is not supported");
         }
     }
+
+
 
 }

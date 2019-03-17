@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6158b69-feeb-4d57-ac4f-ef3edd8b02e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../http-client/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-client/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-messaging/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-messaging/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/IWebBrowser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/WebBrowser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/plugins/ImageDownloaderPlugin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/plugins/api/IWebBrowserPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/browser/model/UrlParts.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/model/HttpLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/browser/plugins/AddBlockerPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/plugins/AddBlockerPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/client/imp/HttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/imp/HttpClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -168,7 +172,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -222,6 +226,11 @@
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="clientHandlers" type="462c0819:PsiDirectoryNode" />
               <item name="imp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="http-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="http-server" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -302,8 +311,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.39934355" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.39934355" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -312,7 +322,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.33260393" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6567164" weight="0.30043384" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.65536106" visible="true" weight="0.30010954" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48309705" weight="0.5176991" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -320,7 +330,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49946696" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.3432836" side_tool="true" visible="true" weight="0.29682365" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.34463894" side_tool="true" visible="true" weight="0.30010954" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49573562" weight="0.318872" />
       <window_info anchor="bottom" id="Statistic" order="12" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
