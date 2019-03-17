@@ -1,7 +1,6 @@
 package application.core.clientHandlers.imp;
 
 import application.core.clientHandlers.api.IHttpClientHandler;
-import application.exceptions.HttpServerException;
 import application.responses.*;
 import messaging.api.IHttpRequest;
 import messaging.api.IHttpResponse;
@@ -16,10 +15,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.sql.*;
 
 public class PersistentHttpClientHandler implements IHttpClientHandler {
     @Override
@@ -129,6 +131,7 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
         }
         return String.join("\r\n", contents);
     }
+
     private IHttpResponse handleHttpMethod(IHttpRequest request) throws IOException {
         switch (request.getMethod()) {
             case HEAD:
@@ -144,7 +147,40 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
 
         return new HttpServerError(String.format("Method %s is not supported", request.getMethod().name()));
     }
+    private IHttpResponse handleGetRequest(IHttpRequest request, boolean loadBody) {
 
+        if (request.getUrlTail().equals("/") || request.getUrlTail().equals("/index")) {
+            request.setUrlTail("/index.html");
+        }
+
+        request.setUrlTail(request.getUrlTail().substring(1));
+        Path requestPath = Paths.get("static", request.getUrlTail());
+        File requestFile = requestPath.toFile();
+
+        if (!requestFile.exists()) {
+            requestPath = Paths.get("static", "user", request.getUrlTail());
+            if (!requestPath.toFile().exists())
+                return new HttpNotFound();
+        }
+
+        if (checkIfModifiedSince(request, requestFile)) return new HttpNotModified();
+
+        try {
+            byte[] fileData = Files.readAllBytes(requestPath);
+
+            IHttpResponse response = new HttpOk();
+            String contentType = Files.probeContentType(requestPath);
+
+            response.getHeaders().set("Content-Length", String.valueOf(fileData.length));
+            response.getHeaders().set("Content-Type", contentType);
+            if (loadBody) response.setBody(fileData);
+            return response;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     private IHttpResponse handlePostRequest(IHttpRequest request) throws IOException {
         if (request.getUrlTail().equals("/"))
             return new HttpForbidden("You can not POST on the root");
@@ -172,41 +208,6 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
 
         return new HttpOk();
     }
-
-    private IHttpResponse handleGetRequest(IHttpRequest request, boolean loadBody) {
-
-        if (request.getUrlTail().equals("/") || request.getUrlTail().equals("/index")) {
-            request.setUrlTail("/index.html");
-        }
-
-        request.setUrlTail(request.getUrlTail().substring(1));
-        Path requestPath = Paths.get("static", request.getUrlTail());
-        File requestFile = requestPath.toFile();
-
-        if (!requestFile.exists()) {
-            requestPath = Paths.get("static", "user", request.getUrlTail());
-            if (!requestPath.toFile().exists())
-                return new HttpNotFound();
-        }
-
-        try {
-            byte[] fileData = Files.readAllBytes(requestPath);
-
-            IHttpResponse response = new HttpOk();
-            String contentType = Files.probeContentType(requestPath);
-
-            response.getHeaders().set("Content-Length", String.valueOf(fileData.length));
-            response.getHeaders().set("Content-Type", contentType);
-            if (loadBody) response.setBody(fileData);
-            return response;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return null;
-
-    }
     private IHttpResponse handlePutRequest(IHttpRequest request) throws IOException {
 
         if (request.getUrlTail().equals("/"))
@@ -224,5 +225,16 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
         fos.close();
 
         return new HttpCreated(String.format("%s%s", "user", request.getUrlTail() + ".txt"));
+    }
+
+    private boolean checkIfModifiedSince(IHttpRequest request, File requestFile) {
+        if (request.getHeaders().hasHeader("If-Modified-Since")) {
+            Date fileDate = new Date(requestFile.lastModified());
+            Date headerDate = Timestamp.valueOf(LocalDateTime.parse(request.getHeaders().getOrEmpty("If-Modified-Since"),
+                    DateTimeFormatter.RFC_1123_DATE_TIME)) ;
+
+            return (fileDate.before(headerDate));
+        }
+        return false;
     }
 }

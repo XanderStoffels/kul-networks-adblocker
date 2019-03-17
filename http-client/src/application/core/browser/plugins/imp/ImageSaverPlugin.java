@@ -42,6 +42,15 @@ public class ImageSaverPlugin implements IWebBrowserPlugin {
             File outputDirectory = Paths.get("downloads", client.getBaseUrl()).toFile();
             outputDirectory.mkdirs();
 
+            if (source.contains("/")) {
+                int index = source.lastIndexOf("/");
+                String pathToCreate = source.substring(0, index);
+                source = source.substring(index);
+                pathToCreate = pathToCreate.replace(":", "_");
+                Paths.get("downloads", client.getBaseUrl(), pathToCreate).toFile().mkdirs();
+            }
+
+            System.out.println(source);
             File outputFile = Paths.get(
                     "downloads",
                     client.getBaseUrl(),

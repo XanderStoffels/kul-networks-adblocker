@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6158b69-feeb-4d57-ac4f-ef3edd8b02e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/plugins/imp/WebpageSaverPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-client/downloads/localhost/robot.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-client/downloads/localhost/solar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-client/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/browser/WebBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/WebBrowser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/browser/plugins/AddBlockerPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/plugins/imp/AddBlockerPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/browser/plugins/ImageDownloaderPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/plugins/imp/ImageSaverPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/client/imp/HttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/client/imp/HttpClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/application/responses/HttpNotModified.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/out/artifacts/http_client_jar/downloads/localhost/solar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/out/artifacts/http_client_jar/downloads/localhost/solar.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http-client/src/application/core/browser/plugins/imp/ImageSaverPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../http-client/src/application/core/browser/plugins/imp/ImageSaverPlugin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/user/hello.txt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,13 +34,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="439" />
+          <entry key="JAVA" value="1245" />
           <entry key="XML" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="2" />
+          <entry key="JAVA" value="3" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="XML" value="1" />
         </counts>
@@ -71,16 +65,30 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="227" column="1" selection-start-line="227" selection-start-column="1" selection-end-line="227" selection-end-column="1" />
+            <state relative-caret-position="495">
+              <caret line="171" column="44" selection-start-line="171" selection-start-column="44" selection-end-line="171" selection-end-column="44" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#handle#0;class#PersistentHttpClientHandler#0" />
                 <element signature="method#requestLoop#0;class#PersistentHttpClientHandler#0" />
                 <element signature="method#getRequestString#0;class#PersistentHttpClientHandler#0" />
                 <element signature="method#handleHttpMethod#0;class#PersistentHttpClientHandler#0" />
                 <element signature="method#handlePostRequest#0;class#PersistentHttpClientHandler#0" />
-                <element signature="method#handleGetRequest#0;class#PersistentHttpClientHandler#0" />
                 <element signature="method#handlePutRequest#0;class#PersistentHttpClientHandler#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/responses/HttpNotModified.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#188#189#0" expanded="true" />
+                <element signature="e#250#251#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/application/responses/HttpBadRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+            <state relative-caret-position="126">
+              <caret line="6" selection-start-line="6" selection-end-line="9" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,6 +174,7 @@
         <option value="$PROJECT_DIR$/src/application/core/HttpServer.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/application/core/clientHandlers/imp/handlePostRequest.java" />
+        <option value="$PROJECT_DIR$/src/application/responses/HttpNotModified.java" />
         <option value="$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java" />
       </list>
     </option>
@@ -186,11 +195,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="283" />
-    <option name="y" value="68" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
     <option name="width" value="974" />
-    <option name="height" value="1029" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -238,9 +246,7 @@
               <item name="http-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="clientHandlers" type="462c0819:PsiDirectoryNode" />
-              <item name="imp" type="462c0819:PsiDirectoryNode" />
+              <item name="responses" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="http-server" type="b2602c69:ProjectViewProjectNode" />
@@ -328,10 +334,10 @@
     <option name="totallyTimeSpent" value="23491000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17377399" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06289978" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -340,7 +346,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49946696" weight="0.33188722" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6556503" visible="true" weight="0.29718006" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6556503" visible="true" weight="0.29718006" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48309705" weight="0.5176991" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -513,16 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/responses/HttpBadRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -561,17 +557,39 @@
     <entry file="file://$PROJECT_DIR$/static/user/hello.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/responses/HttpBadRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" selection-start-line="6" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/responses/HttpNotModified.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#188#189#0" expanded="true" />
+            <element signature="e#250#251#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/application/core/clientHandlers/imp/PersistentHttpClientHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="227" column="1" selection-start-line="227" selection-start-column="1" selection-end-line="227" selection-end-column="1" />
+        <state relative-caret-position="495">
+          <caret line="171" column="44" selection-start-line="171" selection-start-column="44" selection-end-line="171" selection-end-column="44" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#handle#0;class#PersistentHttpClientHandler#0" />
             <element signature="method#requestLoop#0;class#PersistentHttpClientHandler#0" />
             <element signature="method#getRequestString#0;class#PersistentHttpClientHandler#0" />
             <element signature="method#handleHttpMethod#0;class#PersistentHttpClientHandler#0" />
             <element signature="method#handlePostRequest#0;class#PersistentHttpClientHandler#0" />
-            <element signature="method#handleGetRequest#0;class#PersistentHttpClientHandler#0" />
             <element signature="method#handlePutRequest#0;class#PersistentHttpClientHandler#0" />
           </folding>
         </state>
