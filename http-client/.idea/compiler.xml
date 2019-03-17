@@ -9,8 +9,8 @@
         <module name="http-client" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="http-client" target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="http-client" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
