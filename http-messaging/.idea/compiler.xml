@@ -9,8 +9,8 @@
         <module name="http-messaging" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="http-messaging" target="10" />
+    <bytecodeTargetLevel target="8">
+      <module name="http-messaging" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
