@@ -42,20 +42,74 @@ public class WebBrowser implements IWebBrowser {
         response = this.putThroughPlugins(client, request, response);
         return response;
     }
-
     @Override
     public IHttpResponse post(HttpLocator locator, byte[] body) {
-        return null;
-    }
+        IHttpClient client = new HttpClient(locator.getHost(), locator.getPort());
+        IHttpRequest request = new HttpRequest(HttpMethod.POST);
 
+        request.setUrlTail(locator.getTail());
+        request.setHttpVersion("HTTP/1.1");
+        request.getHeaders().set("Host", locator.getHost());
+        request.getHeaders().set("Connection", "keep-alive");
+        request.getHeaders().set("Content-Length", String.valueOf(body.length));
+        request.getHeaders().set("Content-Type", "text/plain");
+        request.setBody(body);
+
+        IHttpResponse response = null;
+        try {
+            client.connect();
+            response = client.request(request);
+        } catch (HttpClientException e) {
+            e.printStackTrace();
+        }
+
+        response = this.putThroughPlugins(client, request, response);
+        return response;
+    }
     @Override
     public IHttpResponse put(HttpLocator locator, byte[] body) {
-        return null;
-    }
+        IHttpClient client = new HttpClient(locator.getHost(), locator.getPort());
+        IHttpRequest request = new HttpRequest(HttpMethod.PUT);
 
+        request.setUrlTail(locator.getTail());
+        request.setHttpVersion("HTTP/1.1");
+        request.getHeaders().set("Host", locator.getHost());
+        request.getHeaders().set("Connection", "keep-alive");
+        request.getHeaders().set("Content-Length", String.valueOf(body.length));
+        request.getHeaders().set("Content-Type", "text/plain");
+        request.setBody(body);
+
+        IHttpResponse response = null;
+        try {
+            client.connect();
+            response = client.request(request);
+        } catch (HttpClientException e) {
+            e.printStackTrace();
+        }
+
+        response = this.putThroughPlugins(client, request, response);
+        return response;
+    }
     @Override
     public IHttpResponse head(HttpLocator locator) {
-        return null;
+        IHttpClient client = new HttpClient(locator.getHost(), locator.getPort());
+        IHttpRequest request = new HttpRequest(HttpMethod.HEAD);
+
+        request.setUrlTail(locator.getTail());
+        request.setHttpVersion("HTTP/1.1");
+        request.getHeaders().set("Host", locator.getHost());
+        request.getHeaders().set("Connection", "keep-alive");
+
+        IHttpResponse response = null;
+        try {
+            client.connect();
+            response = client.request(request);
+        } catch (HttpClientException e) {
+            e.printStackTrace();
+        }
+
+        response = this.putThroughPlugins(client, request, response);
+        return response;
     }
 
     @Override

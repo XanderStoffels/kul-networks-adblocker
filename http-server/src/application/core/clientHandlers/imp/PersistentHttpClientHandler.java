@@ -11,6 +11,7 @@ import messaging.model.HttpMethod;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.SocketException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -41,6 +42,9 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
         try {
             requestLoop(reader, writer);
             client.close();
+
+        }catch (SocketException e) {
+            // Ignored, the client disconnected
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,7 +57,6 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
 
             // Parse the request headers
             String sRequest = getRequestString(reader);
-            System.out.println(sRequest);
             IHttpRequest request = HttpRequest.parse(sRequest);
 
             keepAlive = request.getHttpVersion().equals("HTTP/1.1");
@@ -135,11 +138,39 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
             case PUT:
                 return handlePutRequest(request);
             case POST:
-                return new HttpOk();
+                return handlePostRequest(request);
         }
 
 
         return new HttpServerError(String.format("Method %s is not supported", request.getMethod().name()));
+    }
+
+    private IHttpResponse handlePostRequest(IHttpRequest request) throws IOException {
+        if (request.getUrlTail().equals("/"))
+            return new HttpForbidden("You can not POST on the root");
+
+        if (request.getUrlTail().startsWith("/user"))
+            return new HttpForbidden("You can not POST directly into the user folder");
+
+        Paths.get("static", "user").toFile().mkdir();
+        Path filePath = Paths.get("static", "user", request.getUrlTail() + ".txt");
+
+        boolean created = false;
+        if (!filePath.toFile().exists()) {
+            filePath.toFile().createNewFile();
+            created = true;
+
+        }
+
+        FileOutputStream fos = new FileOutputStream(filePath.toFile(), true);
+        fos.write(request.getBody());
+        fos.flush();
+        fos.close();
+
+        if (created)
+            return new HttpCreated(String.format("%s%s", "user", request.getUrlTail() + ".txt"));
+
+        return new HttpOk();
     }
 
     private IHttpResponse handleGetRequest(IHttpRequest request, boolean loadBody) {
@@ -192,8 +223,6 @@ public class PersistentHttpClientHandler implements IHttpClientHandler {
         fos.flush();
         fos.close();
 
-        return new HttpCreated(String.format("%s%s", "user", request.getUrlTail()));
+        return new HttpCreated(String.format("%s%s", "user", request.getUrlTail() + ".txt"));
     }
-
-
 }

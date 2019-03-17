@@ -1,4 +1,4 @@
-package application.core.browser.plugins;
+package application.core.browser.plugins.imp;
 
 import application.core.browser.plugins.api.IWebBrowserPlugin;
 import application.core.client.api.IHttpClient;
@@ -17,7 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
 
-public class ImageDownloaderPlugin implements IWebBrowserPlugin {
+public class ImageSaverPlugin implements IWebBrowserPlugin {
     @Override
     public IHttpResponse passThrough(IHttpClient client,  IHttpRequest originalRequest, IHttpResponse originalResponse) {
         String htmlString = new String(originalResponse.getBody());
@@ -39,8 +39,6 @@ public class ImageDownloaderPlugin implements IWebBrowserPlugin {
 
         try {
             IHttpResponse imageResponse = client.request(imageRequest);
-
-            Thread.sleep(500);
             File outputDirectory = Paths.get("downloads", client.getBaseUrl()).toFile();
             outputDirectory.mkdirs();
 
@@ -56,8 +54,6 @@ public class ImageDownloaderPlugin implements IWebBrowserPlugin {
             imageSaveSteam.close();
 
         } catch (HttpClientException | IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
