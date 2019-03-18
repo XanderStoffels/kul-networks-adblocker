@@ -67,6 +67,7 @@ public class Main {
     private static void printResponse(IHttpResponse response){
         StringBuilder builder = new StringBuilder();
         builder.append("** STATUS **\n");
+        builder.append(String.format("%s\n", response.getHttpVersion()));
         builder.append(String.format("%s %s\n\n",
                 response.getResponseStatus().getStatusCode(), response.getResponseStatus().getStatusMessage()));
 

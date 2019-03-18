@@ -11,15 +11,14 @@ public class HttpResponse extends BaseHttpMessage implements IHttpResponse {
     private ResponseStatus status;
 
     public HttpResponse(ResponseStatus status) {
-        this.status = status;
-        this.headers = new HttpHeaders();
-        this.body = new byte[0];
+        this(status, new HttpHeaders(), new byte[] {});
     }
 
     public HttpResponse(ResponseStatus status, IHttpHeaders headers, byte[] body) {
         this.status = status;
         this.headers = headers;
         this.body = body;
+        this.setHttpVersion("HTTP/1.1");
     }
 
     @Override
